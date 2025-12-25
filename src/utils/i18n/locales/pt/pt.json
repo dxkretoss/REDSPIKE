@@ -1,0 +1,207 @@
+{
+  "nav": {
+    "home": "Início",
+    "about": "Sobre Nós",
+    "services": "Serviços",
+    "contact": "Contato",
+    "blog": "Blog",
+    "contacts": "Contatos",
+    "tools": "P&D / Ferramentas",
+    "contactUs": "Fale Conosco"
+  },
+
+  "footer": {
+    "tagline": {
+      "line1": "Identifique Fraquezas. Previna",
+      "line2": "Incidentes. O Adversário",
+      "line3": "Trabalhando a Seu Favor."
+    },
+
+    "usefulLinks": {
+      "title": "Links Úteis"
+    },
+
+    "terms": {
+      "title": "Termos",
+      "privacy": "Política de Privacidade",
+      "conditions": "Termos e Condições"
+    },
+
+    "contact": {
+      "title": "Fale Conosco",
+      "emailLabel": "Endereço de Email",
+      "email": "info@redspike.global",
+      "callLabel": "Ligue Para Nós",
+      "phoneIndia": "+351 935 393 440 (PT)",
+      "phoneUsa": "+244 939 122 922 (AO)"
+    },
+
+    "copyright": "DIREITOS AUTORAIS © REDSPIKE"
+  },
+
+  "contact": {
+    "titleRed": "Contato",
+    "titleWhite": "Conosco",
+
+    "form": {
+      "firstName": "Nome*",
+      "firstNamePlaceholder": "João",
+      "email": "Email*",
+      "emailPlaceholder": "joao.silva@gmail.com",
+      "phone": "Telefone*",
+      "phonePlaceholder": "+351 933 333 444",
+      "company": "Empresa",
+      "companyPlaceholder": "Red Spike",
+      "role": "Cargo*",
+      "rolePlaceholder": "Gerente",
+      "service": "Serviço de Interesse*",
+      "message": "Mensagem",
+      "messagePlaceholder": "Conte-nos sobre suas necessidades...",
+      "submit": "Enviar"
+    },
+
+    "info": {
+      "title": "Informações de Contato",
+      "description": "Entre em contato conosco ou envie o formulário para solicitar mais informações.",
+      "locationTitle": "Localização",
+      "locationText": "De Portugal e Angola para o Mundo",
+      "availabilityTitle": "Disponibilidade",
+      "availabilityText": "Disponível 24 horas por dia, 7 dias por semana, 365 dias por ano",
+      "emailTitle": "Endereço de Email",
+      "email": "info@redspike.global",
+      "phoneTitle": "Números de Telefone",
+      "phonePt": "+351 933 333 444 (PT)",
+      "phoneAo": "+244 923 122 222 (AO)",
+      "note": "Se estiver viajando, para evitar custos de chamadas, entre em contato via WhatsApp ou Telegram."
+    }
+  },
+  "clients": {
+    "titleRed": "Setores dos",
+    "titleWhite": "Nossos Clientes",
+    "description": "Trabalhamos em parceria com uma ampla gama de organizações pequenas, médias e grandes em mercados nacionais e internacionais. Nosso foco é fornecer soluções confiáveis e de alta qualidade que fortaleçam operações, apoiem objetivos estratégicos e construam relacionamentos duradouros. Se desejar conhecer nossa experiência ou discutir como podemos apoiar seus projetos, teremos prazer em agendar uma reunião com você.",
+
+    "banking": "Bancos e Seguros",
+    "government": "Governo",
+    "retail": "Varejo",
+    "it": "Tecnologia da Informação",
+    "healthcare": "Saúde",
+    "industry": "Indústria",
+    "telecom": "Telecomunicações",
+    "transportation": "Transporte",
+    "service": "Organizações de Serviços",
+    "energy": "Energia"
+  },
+  "services": {
+    "titleWhite": "Nossos",
+    "titleRed": "Serviços",
+    "description": "Concentramos-nos no que fazemos de melhor: fornecer serviços avançados de segurança ofensiva com transparência, rigor e excelência. Para áreas fora da nossa especialidade principal, colaboramos com parceiros confiáveis, garantindo que cada cliente receba o conhecimento certo, das pessoas certas, no momento certo.",
+
+    "offensive": {
+      "title": "Avaliações Personalizadas de Segurança Ofensiva",
+      "description": "Desenvolvimento de auditorias e avaliações de segurança alinhadas às necessidades da sua organização."
+    },
+    "webApi": {
+      "title": "Testes de Segurança Web & API",
+      "description": "Identifique e corrija vulnerabilidades em aplicações web e APIs para reduzir riscos."
+    },
+    "network": {
+      "title": "Avaliações de Segurança de Redes Internas e Externas",
+      "description": "Avalie e fortaleça a segurança das suas redes através de análises adversariais abrangentes."
+    },
+    "threat": {
+      "title": "Inteligência de Ameaças",
+      "description": "Obtenha insights acionáveis sobre ameaças emergentes e táticas adversárias."
+    },
+    "osint": {
+      "title": "OSINT & Investigações de Pegada Digital",
+      "description": "Mapeie e analise a exposição pública da sua organização."
+    },
+    "phishing": {
+      "title": "Simulações de Phishing & Engenharia Social",
+      "description": "Teste a conscientização e resiliência da organização contra ataques reais."
+    },
+    "training": {
+      "title": "Treinamento & Desenvolvimento de Competências",
+      "description": "Capacite sua equipe com treinamentos práticos e especializados em cibersegurança."
+    },
+    "mobile": {
+      "title": "Avaliações de Segurança de Aplicações Móveis",
+      "description": "Fortaleça a segurança de aplicações Android e iOS contra ameaças modernas."
+    },
+    "forensics": {
+      "title": "Forense Digital & Análise de Resposta a Incidentes",
+      "description": "Investigue incidentes de segurança e apoie ações rápidas de resposta."
+    },
+    "iot": {
+      "title": "Testes de Segurança IoT & Dispositivos Embarcados",
+      "description": "Avalie vulnerabilidades em dispositivos IoT e sistemas embarcados."
+    },
+    "compliance": {
+      "title": "Conformidade e Consultoria em Cibersegurança",
+      "description": "Apoio à conformidade com normas ISO, GDPR, SOC e regulamentos de segurança."
+    }
+  },
+  "hero": {
+    "badge": "A segurança é comprovada na prática, não na política.",
+
+    "title": {
+      "line1": "Se Sua Organização For Atacada Hoje,",
+      "line2": "Amanhã?",
+      "highlight": "Operacional"
+    },
+
+    "subtitle": "Controles Provam Intenção. A Ofensiva Prova Efetividade.",
+
+    "description": "Se você não desafiar seus controles, a cibersegurança o fará. Ajudamos a identificar fraquezas de alto impacto antes que se tornem incidentes críticos. Nossa equipe multidisciplinar e certificada garante que a segurança não seja apenas uma percepção, mas uma prática contínua e baseada em evidências que pode ser demonstrada a parceiros e stakeholders.",
+
+    "cta": "Fale Conosco",
+
+    "stats": {
+      "experience": {
+        "value": "10+",
+        "label": "Anos de Experiência Combinada"
+      },
+      "vulnerabilities": {
+        "value": "500+",
+        "label": "Vulnerabilidades Críticas Identificadas"
+      },
+      "support": {
+        "value": "24/7",
+        "label": "Suporte"
+      },
+      "alignment": {
+        "value": "100%",
+        "label": "Alinhado às Suas Necessidades"
+      }
+    }
+  },
+  "offenseHero": {
+    "title": {
+      "line1": "Segurança Ofensiva em",
+      "highlight": "Cibersegurança",
+      "line2": "Serviços"
+    },
+    "subtitle": "Identifique fraquezas. Previna incidentes. A mentalidade do adversário trabalhando a seu favor.",
+    "cta": "Solicitar Proposta",
+    "notes": {
+      "1": "Testes de penetração são mais baratos que ransomware ou data breaches.",
+      "2": "Identificar e mitigar as vulnerabilidades que realmente impactam a continuidade do negócio.",
+      "3": "A segurança prova-se na prática, não na política.",
+      "4": "A resiliência constrói-se através de adversidade controlada.",
+      "5": "Os controlos de segurança dizem o que devia funcionar. A ofensiva mostra o que funciona.",
+      "6": "Previne ransomware identificando primeiro as fragilidades críticas.",
+      "7": "Identificar fragilidades críticas antes de se tornarem incidentes.",
+      "8": "Transformar descobertas ofensivas em vantagens defensivas estratégicas.",
+      "9": "Se não testar os teus controlos, os cibercriminosos testam por ti.",
+      "10": "Identificar fragilidades sistémicas com operações Red Team de alta precisão.",
+      "11": "Cibercriminosos pensam de forma ofensiva. E você?",
+      "12": "Identificar e mitigar fragilidades antes que os cibercriminosos as encontrem.",
+      "13": "A segurança falha em silêncio — até falhar em grande."
+    },
+    "features": {
+      "monitoring": "Monitoramento de Segurança",
+      "detection": "Detecção de Ameaças",
+      "protection": "Proteção de Dados"
+    }
+  }
+}

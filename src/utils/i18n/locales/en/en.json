@@ -1,0 +1,208 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "contact": "Contact",
+    "blog": "Blog",
+    "contacts": "Contacts",
+    "tools": "R&D / Tools",
+    "contactUs": "Contact Us"
+  },
+
+  "footer": {
+    "tagline": {
+      "line1": "Identify Weaknesses. Prevent",
+      "line2": "Incidents. The Adversary",
+      "line3": "Network Working For You."
+    },
+
+    "usefulLinks": {
+      "title": "Useful Links"
+    },
+
+    "terms": {
+      "title": "Terms",
+      "privacy": "Privacy Policy",
+      "conditions": "Terms and Conditions"
+    },
+
+    "contact": {
+      "title": "Contact Us",
+      "emailLabel": "Email Address",
+      "email": "info@redspike.global",
+      "callLabel": "Call Us",
+      "phoneIndia": "+351 935 393 440 (PT)",
+      "phoneUsa": "+244 939 122 922 (AO)"
+    },
+
+    "copyright": "COPYRIGHT © REDSPIKE"
+  },
+
+  "contact": {
+    "titleRed": "Contact",
+    "titleWhite": "Us",
+
+    "form": {
+      "firstName": "First Name*",
+      "firstNamePlaceholder": "John",
+      "email": "Email*",
+      "emailPlaceholder": "john.doe@gmail.com",
+      "phone": "Phone*",
+      "phonePlaceholder": "+1 987 654 3210",
+      "company": "Company",
+      "companyPlaceholder": "Red Spike",
+      "role": "Company Role*",
+      "rolePlaceholder": "Manager",
+      "service": "Service of Interest*",
+      "message": "Message",
+      "messagePlaceholder": "Tell us about your requirements...",
+      "submit": "Submit"
+    },
+
+    "info": {
+      "title": "Contact Information",
+      "description": "Reach out to us or submit the form to request additional information.",
+      "locationTitle": "Location",
+      "locationText": "From Portugal & Angola to the World",
+      "availabilityTitle": "Availability",
+      "availabilityText": "Available 24 hours a day, 7 days a week, 365 days a year",
+      "emailTitle": "Email Address",
+      "email": "info@redspike.global",
+      "phoneTitle": "Phone Numbers",
+      "phonePt": "+351 933 333 444 (PT)",
+      "phoneAo": "+244 923 122 222 (AO)",
+      "note": "You may be traveling, to avoid call charges, please contact us via WhatsApp or Telegram."
+    }
+  },
+
+  "clients": {
+    "titleRed": "Our Client’s",
+    "titleWhite": "Sectors",
+    "description": "We partner with a wide range of small, medium and large organizations across national and international markets. Our focus is to deliver reliable, high-quality solutions that strengthen operations, support strategic goals, and build long-lasting relationships. If you would like to explore our experience or discuss how we can support your projects, we will be pleased to arrange a meeting with you.",
+
+    "banking": "Banking and Insurance",
+    "government": "Government",
+    "retail": "Retail",
+    "it": "Information Technology",
+    "healthcare": "Healthcare",
+    "industry": "Industry",
+    "telecom": "Telecom",
+    "transportation": "Transportation",
+    "service": "Service Organizations",
+    "energy": "Energy"
+  },
+  "services": {
+    "titleWhite": "Our",
+    "titleRed": "Services",
+    "description": "We focus on what we do best: delivering high-end offensive security services with transparency, rigor, and excellence. For areas beyond our core expertise, we collaborate with trusted partners who are specialists in their fields, ensuring that every client receives the right knowledge, from the right people, at the right time.",
+
+    "offensive": {
+      "title": "Custom Offensive Security Assessments",
+      "description": "Development of security audits and assessments aligned with your organization's needs and business continuity objectives."
+    },
+    "webApi": {
+      "title": "Web & API Security Testing",
+      "description": "Identify and address vulnerabilities in your web applications and APIs to reduce risk exposure."
+    },
+    "network": {
+      "title": "Internal & External Network Security Assessments",
+      "description": "Assess and improve the security of your internal and external networks through comprehensive adversarial analysis."
+    },
+    "threat": {
+      "title": "Threat Intelligence",
+      "description": "Gain actionable insights into emerging threats, vulnerabilities, and adversary tactics to strengthen your defense strategy."
+    },
+    "osint": {
+      "title": "OSINT & Digital Footprint Investigations",
+      "description": "Reveal your organization's public exposure by mapping and analyzing your digital footprint."
+    },
+    "phishing": {
+      "title": "Phishing & Social Engineering Simulations",
+      "description": "Simulate real-world attacks to evaluate awareness, resilience, and response readiness across your organization."
+    },
+    "training": {
+      "title": "Training & Skills Development",
+      "description": "Enhance your team's capabilities through customized cybersecurity training and hands-on skill-building programs."
+    },
+    "mobile": {
+      "title": "Mobile Application Security Assessments",
+      "description": "Evaluate and strengthen the security of your Android and iOS applications against modern threats."
+    },
+    "forensics": {
+      "title": "Digital Forensics & Incident Response Analysis",
+      "description": "Investigate security incidents, preserve evidence, and support rapid recovery and response operations."
+    },
+    "iot": {
+      "title": "IoT & Embedded Device Security Testing",
+      "description": "Assess weaknesses in IoT and embedded systems to ensure device resilience, safety, and trust."
+    },
+    "compliance": {
+      "title": "Cybersecurity Compliance & Advisory",
+      "description": "Support for ISO, GDPR, SOC, and regulatory compliance through expert advisory and assessment services."
+    }
+  },
+  "hero": {
+    "badge": "Security is proven in practice, not in policy.",
+
+    "title": {
+      "line1": "If Your Organization Is Hit Today,",
+      "line2": "Tomorrow?",
+      "highlight": "Operational"
+    },
+
+    "subtitle": "Controls Prove Intent. Offense Proves Effectiveness.",
+
+    "description": "If you don't challenge your controls, cybersecurity will. We help you identify high-impact weaknesses before they become high-impact incidents. Our multidisciplinary, certified team ensures that security in your organization is not a feeling, but a continuous, evidence-driven practice you can demonstrate to your business partners and stakeholders.",
+
+    "cta": "Contact Us",
+
+    "stats": {
+      "experience": {
+        "value": "10+",
+        "label": "Years Combined Experience"
+      },
+      "vulnerabilities": {
+        "value": "500+",
+        "label": "Critical Vulnerabilities Identified"
+      },
+      "support": {
+        "value": "24/7",
+        "label": "Support"
+      },
+      "alignment": {
+        "value": "100%",
+        "label": "Aligned with Your Need"
+      }
+    }
+  },
+  "offenseHero": {
+    "title": {
+      "line1": "Offense-Led",
+      "highlight": "Cybersecurity",
+      "line2": "Services"
+    },
+    "subtitle": "Identify Weaknesses. Prevent Incidents. The Adversary’s Mindset Working For You.",
+    "cta": "Get a Proposal",
+    "notes": {
+      "1": "A pentest is cheaper than ransomware or a data breach.",
+      "2": "Identify and mitigate the vulnerabilities that truly matter to business continuity.",
+      "3": "Security is proven in practice, not in policy.",
+      "4": "Resilience is built through controlled adversity.",
+      "5": "Controls prove intent. Offense proves effectiveness.",
+      "6": "Prevent ransomware by identifying exploitable weaknesses first.",
+      "7": "Identifying high-impact weaknesses before they become high-impact incidents.",
+      "8": "Transforming offensive findings into strategic defensive advantages.",
+      "9": "If you don’t challenge your controls, attackers will.",
+      "10": "Exposing systemic weaknesses through precision-led Red Team operations.",
+      "11": "Threat actors think offensively. Do you?",
+      "12": "Identify and mitigate weaknesses before cybercriminals do.",
+      "13": "Security fails quietly—until it fails loudly."
+    },
+    "features": {
+      "monitoring": "Security Monitoring",
+      "detection": "Threat Detection",
+      "protection": "Data Protection"
+    }
+  }
+}
