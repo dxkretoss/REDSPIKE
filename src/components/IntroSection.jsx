@@ -2,17 +2,17 @@ import { useTranslation } from "react-i18next";
 import { Shield, Bug, Headset, CheckCircle, ArrowUpRight } from "lucide-react";
 
 const stats = [
-    { key: "hero.stats.experience", icon: Shield },
-    { key: "hero.stats.vulnerabilities", icon: Bug },
-    { key: "hero.stats.support", icon: Headset },
-    { key: "hero.stats.alignment", icon: CheckCircle }
+    { key: "hero.stats.experience", icon: './intro/intro-1.svg' },
+    { key: "hero.stats.vulnerabilities", icon: './intro/intro-2.svg' },
+    { key: "hero.stats.support", icon: './intro/intro-3.svg' },
+    { key: "hero.stats.alignment", icon: './intro/intro-4.svg' }
 ];
 
 export default function IntroSection() {
     const { t } = useTranslation();
 
     return (
-        <section className="w-full bg-black px-6 py-20 relative overflow-hidden"
+        <section className="w-full bg-black px-6 pt-20 relative overflow-hidden"
             style={{
                 backgroundImage: 'url(/protection-bg-image.svg)'
             }}>
@@ -83,30 +83,23 @@ export default function IntroSection() {
                 </div>
 
                 {/* STATS */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20">
+                <div className="max-w-6xl mx-auto flex gap-20 mt-20 items-center bg-[linear-gradient(180deg,#240303_0%,#0E0202_100%)] border border-[#FFFFFF33] rounded-[24px] p-6">
                     {stats.map((item) => {
                         const Icon = item.icon;
 
                         return (
-                            <div
-                                key={item.key}
-                                className="
-                  rounded-xl p-4 text-center
-                  bg-gradient-to-br from-[#1a0f0f] to-[#2a0f0f]
-                  border border-[#932424]
-                  shadow-[0_0_24px_#A33F3F40]
-                "
-                            >
-                                <div className="w-10 h-10 mx-auto mb-3 flex items-center justify-center
-                                rounded-lg border border-[#932424]
-                                text-[#D21717]">
-                                    <Icon size={18} />
-                                </div>
+                            <div key={item.key}>
+                                <div className="flex items-center gap-2">
+                                    <div className="w-14 h-14 mb-3 p-3 flex items-center justify-center
+                                rounded-[12px] bg-[#776767]">
+                                        <img src={Icon} alt={Icon} />
+                                    </div>
 
-                                <p className="text-lg font-semibold text-white">
-                                    {t(`${item.key}.value`)}
-                                </p>
-                                <p className="text-xs text-white/70">
+                                    <p className="text-[28px] font-semibold text-white">
+                                        {t(`${item.key}.value`)}
+                                    </p>
+                                </div>
+                                <p className="text-[16px] text-[#FFFFFFE5]">
                                     {t(`${item.key}.label`)}
                                 </p>
                             </div>

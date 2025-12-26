@@ -5,6 +5,7 @@ import OurClient from '../components/OurClient';
 import Ourservices from '../components/Ourservices';
 import IntroSection from '../components/IntroSection';
 import OffenseHero from '../components/OffenseHero';
+import Whatweare from '../components/Whatweare';
 export default function Homepage() {
     return (
         <div className="relative min-h-screen">
@@ -13,6 +14,7 @@ export default function Homepage() {
             </div>
             <OffenseHero />
             <IntroSection />
+            <Whatweare />
             <Ourservices />
             <OurClient />
             <Contact />

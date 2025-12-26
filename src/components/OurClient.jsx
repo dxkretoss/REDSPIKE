@@ -1,75 +1,124 @@
 import { useTranslation } from "react-i18next";
-import {
-    Landmark,
-    Gavel,
-    Store,
-    Monitor,
-    HeartPulse,
-    Factory,
-    Radio,
-    Truck,
-    Building2,
-    Zap
-} from "lucide-react";
+import { motion } from "framer-motion";
 
 const sectors = [
-    { key: "clients.banking", icon: Landmark },
-    { key: "clients.government", icon: Gavel },
-    { key: "clients.retail", icon: Store },
-    { key: "clients.it", icon: Monitor },
-    { key: "clients.healthcare", icon: HeartPulse },
-    { key: "clients.industry", icon: Factory },
-    { key: "clients.telecom", icon: Radio },
-    { key: "clients.transportation", icon: Truck },
-    { key: "clients.service", icon: Building2 },
-    { key: "clients.energy", icon: Zap }
+    { key: "clients.banking", icon: "./ourclients/bank.svg" },
+    { key: "clients.government", icon: "./ourclients/gov.svg" },
+    { key: "clients.retail", icon: "./ourclients/retail.svg" },
+    { key: "clients.it", icon: "./ourclients/it.svg" },
+    { key: "clients.healthcare", icon: "./ourclients/health.svg" },
+    { key: "clients.industry", icon: "./ourclients/industry.svg" },
+    { key: "clients.telecom", icon: "./ourclients/tele.svg" },
+    { key: "clients.transportation", icon: "./ourclients/transport.svg" },
+    { key: "clients.service", icon: "./ourclients/service.svg" },
+    { key: "clients.energy", icon: "./ourclients/energy.svg" }
 ];
+
+/* ===== Animation variants (minimal & safe) ===== */
+
+const containerVariants = {
+    hidden: {},
+    show: {
+        transition: {
+            staggerChildren: 0.08,
+        },
+    },
+};
+
+const itemVariants = {
+    hidden: { opacity: 0, y: 24 },
+    show: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.45, ease: "easeOut" },
+    },
+};
 
 export default function OurClient() {
     const { t } = useTranslation();
 
     return (
-        <section className="w-full bg-black py-20 px-6 relative overflow-hidden">
+        <section
+            className="w-full bg-black pt-20 pb-5 px-6 relative overflow-hidden"
+            style={{
+                backgroundImage: "url(./ourclients/bg.svg)",
+                backgroundPosition: "center",
+            }}
+        >
             <div className="max-w-7xl mx-auto">
 
-                {/* Title */}
-                <h2 className="text-center text-3xl font-semibold mb-4">
-                    <span className="text-[#D21717]">{t("clients.titleRed")}</span>{" "}
+                {/* ===== TITLE ===== */}
+                <motion.h2
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                    className="text-center text-5xl mb-4"
+                >
+                    <span
+                        className="font-bold text-transparent bg-clip-text [text-shadow:0_0_9.54px_#E4303099]"
+                        style={{
+                            backgroundImage:
+                                "linear-gradient(90.09deg, #C22222 0.08%, #C04646 78.5%)",
+                        }}
+                    >
+                        {t("clients.titleRed")}
+                    </span>{" "}
                     <span className="text-white">{t("clients.titleWhite")}</span>
-                </h2>
+                </motion.h2>
 
-                {/* Description */}
-                <p className="max-w-4xl mx-auto text-center text-sm text-white/70 mb-12">
+                {/* ===== DESCRIPTION ===== */}
+                <motion.p
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.45, delay: 0.05 }}
+                    className="max-w-5xl mx-auto text-center text-[16px] text-white mb-12"
+                >
                     {t("clients.description")}
-                </p>
+                </motion.p>
 
-                {/* Grid */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
-                    {sectors.map((item) => {
-                        const Icon = item.icon;
-
-                        return (
+                {/* ===== GRID ===== */}
+                <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, margin: "-80px" }}
+                    className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6"
+                >
+                    {sectors.map((item) => (
+                        <motion.div
+                            key={item.key}
+                            variants={itemVariants}
+                            whileHover={{
+                                y: -6,
+                                scale: 1.03,
+                            }}
+                            transition={{
+                                type: "spring",
+                                stiffness: 240,
+                                damping: 18,
+                            }}
+                            className="
+                flex flex-col items-center justify-center gap-3
+                rounded-xl p-6 text-center
+                transition-all
+              "
+                        >
                             <div
-                                key={item.key}
-                                className="
-                                flex flex-col items-center justify-center gap-3
-                                rounded-xl p-6 text-center
-                                transition-all
-                                "
+                                className="w-20 h-20 p-4 flex items-center justify-center
+                rounded-lg border border-[#932424] bg-[#9324244D]
+                backdrop-blur-[12px]"
                             >
-                                <div className="w-12 h-12 flex items-center justify-center
-                                rounded-lg border border-[#932424]
-                                text-[#D21717]">
-                                    <Icon size={22} />
-                                </div>
-
-                                <p className="text-sm text-white">
-                                    {t(item.key)}
-                                </p>
+                                <img src={item.icon} alt="" />
                             </div>
-                        );
-                    })}
-                </div>
+
+                            <p className="text-[18px] text-white whitespace-nowrap">
+                                {t(item.key)}
+                            </p>
+                        </motion.div>
+                    ))}
+                </motion.div>
 
             </div>
         </section>

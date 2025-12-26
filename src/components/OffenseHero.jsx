@@ -90,7 +90,7 @@ export default function OffenseHero() {
                 {/* RIGHT VISUAL */}
                 <div className="hidden lg:flex justify-center relative">
                     <img
-                        // src="/Group 1376156941 (1).svg"
+                        src="/hero.svg"
                         alt="Security Illustration"
                     />
                 </div>

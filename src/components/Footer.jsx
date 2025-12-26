@@ -1,95 +1,155 @@
-import { Facebook, Twitter, Linkedin } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { motion } from "framer-motion";
 
-const Footer = () => {
+const socialLinks = [
+    { href: "#", img: "/facebook.svg", alt: "Facebook" },
+    { href: "#", img: "/x.svg", alt: "Twitter" },
+    { href: "#", img: "/insta.svg", alt: "Instagram" },
+];
+
+/* ===== Animation variants ===== */
+
+const footerContainer = {
+    hidden: {},
+    show: {
+        transition: {
+            staggerChildren: 0.12,
+        },
+    },
+};
+
+const footerItem = {
+    hidden: { opacity: 0, y: 24 },
+    show: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.5, ease: "easeOut" },
+    },
+};
+
+export default function Footer() {
     const { t } = useTranslation();
 
     return (
-        <footer className="w-full bg-black border-t border-[#FFFFFF1A] relative">
-
-            {/* Top Section */}
-            <div className="max-w-[1390px] mx-auto px-6 py-16">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
-
+        <footer className="w-full bg-black border-t border-[#FFFFFF1A] relative overflow-hidden">
+            {/* ===== TOP SECTION ===== */}
+            <motion.div
+                variants={footerContainer}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+                className="max-w-[1390px] mx-auto px-6 py-16"
+            >
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12">
                     {/* Brand */}
-                    <div>
-                        <img src="/mainlogo.svg" alt="RedSpike" className="h-[50px] w-auto" />
+                    <motion.div variants={footerItem}>
+                        <img
+                            src="/mainlogo.svg"
+                            alt="RedSpike"
+                            className="h-[50px] w-auto"
+                        />
                         <p className="text-[16px] text-[#FFFFFF] leading-relaxed mt-5">
                             {t("footer.tagline.line1")} <br />
                             {t("footer.tagline.line2")} <br />
                             {t("footer.tagline.line3")}
                         </p>
-                    </div>
+                    </motion.div>
 
                     {/* Useful Links */}
-                    <div>
+                    <motion.div variants={footerItem}>
                         <h4 className="text-[14px] text-[#FFFFFFBF] mb-4 uppercase tracking-wider">
                             {t("footer.usefulLinks.title")}
                         </h4>
                         <ul className="space-y-2 text-[16px] text-[#FFFFFF]">
-                            <li className="hover:text-white cursor-pointer">{t("nav.home")}</li>
-                            <li className="hover:text-white cursor-pointer">{t("nav.about")}</li>
-                            <li className="hover:text-white cursor-pointer">{t("nav.services")}</li>
-                            <li className="hover:text-white cursor-pointer">{t("nav.contact")}</li>
-                            <li className="hover:text-white cursor-pointer">{t("nav.blog")}</li>
+                            {["home", "about", "services", "contact", "blog"].map((key) => (
+                                <li
+                                    key={key}
+                                    className="hover:text-white transition-colors cursor-pointer"
+                                >
+                                    {t(`nav.${key}`)}
+                                </li>
+                            ))}
                         </ul>
-                    </div>
+                    </motion.div>
 
                     {/* Terms */}
-                    <div>
+                    <motion.div variants={footerItem}>
                         <h4 className="text-[14px] text-[#FFFFFFBF] mb-4 uppercase tracking-wider">
                             {t("footer.terms.title")}
                         </h4>
                         <ul className="space-y-2 text-[16px] text-[#FFFFFF]">
-                            <li className="hover:text-white cursor-pointer">
+                            <li className="hover:text-white transition-colors cursor-pointer">
                                 {t("footer.terms.privacy")}
                             </li>
-                            <li className="hover:text-white cursor-pointer">
+                            <li className="hover:text-white transition-colors cursor-pointer">
                                 {t("footer.terms.conditions")}
                             </li>
                         </ul>
-                    </div>
+                    </motion.div>
 
                     {/* Contact */}
-                    <div>
+                    <motion.div variants={footerItem}>
                         <h4 className="text-[14px] text-[#FFFFFFBF] mb-4 uppercase tracking-wider">
                             {t("footer.contact.title")}
                         </h4>
 
                         <div className="space-y-2 text-sm">
                             <p className="text-white">{t("footer.contact.emailLabel")}</p>
-                            <p className=" text-[#D21717]">{t("footer.contact.email")}</p>
+                            <p className="text-[#D21717]">
+                                {t("footer.contact.email")}
+                            </p>
 
-                            <p className="text-white mt-4">{t("footer.contact.callLabel")}</p>
-                            <p className="text-[#D21717]">{t("footer.contact.phoneIndia")}</p>
-                            <p className="text-[#D21717]">{t("footer.contact.phoneUsa")}</p>
+                            <p className="text-white mt-4">
+                                {t("footer.contact.callLabel")}
+                            </p>
+                            <p className="text-[#D21717]">
+                                {t("footer.contact.phoneIndia")}
+                            </p>
+                            <p className="text-[#D21717]">
+                                {t("footer.contact.phoneUsa")}
+                            </p>
                         </div>
 
                         {/* Social Icons */}
                         <div className="flex gap-4 mt-6">
-                            {[Facebook, Twitter, Linkedin].map((Icon, i) => (
-                                <div
+                            {socialLinks.map((item, i) => (
+                                <motion.a
                                     key={i}
-                                    className="w-8 h-8 rounded-full border border-[#FFFFFF40]
-                                    flex items-center justify-center
-                                    hover:border-[#D21717] hover:text-[#D21717]
-                                    transition-all cursor-pointer"
+                                    href={item.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    whileHover={{ y: -3, scale: 1.08 }}
+                                    transition={{ type: "spring", stiffness: 300, damping: 18 }}
+                                    className="
+                    w-10 h-10 rounded-full
+                    bg-[#0E1219] border border-[#FFFFFF33]
+                    flex items-center justify-center
+                    hover:border-[#D21717]
+                    transition-colors cursor-pointer
+                  "
                                 >
-                                    <Icon size={14} />
-                                </div>
+                                    <img
+                                        src={item.img}
+                                        alt={item.alt}
+                                        className="w-4 h-4 object-contain"
+                                    />
+                                </motion.a>
                             ))}
                         </div>
-                    </div>
-
+                    </motion.div>
                 </div>
-            </div>
+            </motion.div>
 
-            {/* Divider */}
-
-            {/* Bottom Section */}
-            <div className="relative py-10 text-center">
-                <div className="absolute  inset-0 flex items-center justify-center pointer-events-none">
-                    <h1 className="text-[120px] font-bold tracking-[0.4em] text-white/5">
+            {/* ===== BOTTOM SECTION ===== */}
+            <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="relative py-10 text-center"
+            >
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <h1 className="text-[60px] sm:text-[90px] md:text-[120px] font-bold tracking-[0.35em] text-white/5">
                         REDSPIKE
                     </h1>
                 </div>
@@ -97,10 +157,7 @@ const Footer = () => {
                 <p className="relative z-10 text-xs text-[#FFFFFF80]">
                     {t("footer.copyright")}
                 </p>
-            </div>
-
+            </motion.div>
         </footer>
     );
-};
-
-export default Footer;
+}

@@ -72,7 +72,7 @@
       "phoneTitle": "Números de Telefone",
       "phonePt": "+351 933 333 444 (PT)",
       "phoneAo": "+244 923 122 222 (AO)",
-      "note": "Se estiver viajando, para evitar custos de chamadas, entre em contato via WhatsApp ou Telegram."
+      "note": "Podemos estar a viajar; para evitar custos de chamadas, por favor contacte-nos via <strong>WhatsApp</strong> ou <strong>Telegram</strong>."
     }
   },
   "clients": {
@@ -202,6 +202,35 @@
       "monitoring": "Monitoramento de Segurança",
       "detection": "Detecção de Ameaças",
       "protection": "Proteção de Dados"
+    }
+  },
+  "Whatweare": {
+    "headerTitle": "O Que Nos",
+    "headerTitleRed": "Distingue",
+    "headerSubtitle": "Experiência, soluções personalizadas, proteção de dados, conformidade global e resposta rápida a incidentes — sempre com valor acrescentado.",
+
+    "card1": {
+      "securityFits": "Impacto acima de volume",
+      "title": "Compromisso com a Excelência",
+      "point1": "Adoramos o que fazemos — e apenas aceitamos projetos nos quais podemos garantir qualidade e resultados significativos. Não assumimos trabalhos apenas para preencher um portefólio ou colecionar logótipos.",
+      "point2": "Trabalhamos para gerar impacto. Por isso, só nos comprometemos com missões em que sabemos que podemos superar expectativas e, quando necessário, colaboramos com especialistas altamente qualificados noutras áreas da cibersegurança.",
+      "point3": "O cliente recebe sempre a solução certa — mesmo quando não é entregue diretamente por nós."
+    },
+
+    "card2": {
+      "securityFits": "Ofensiva por especialistas",
+      "title": "Especialistas Reais, Experiência Comprovada",
+      "point1": "Todos os serviços são prestados por profissionais certificados com experiência comprovada em segurança ofensiva.",
+      "point2": "Sem intermediários, sem subcontratação oculta, sem atalhos — apenas especialistas que compreendem verdadeiramente as técnicas usadas por atacantes reais.",
+      "point3": "Conhecimento tangível, rigor técnico e total transparência em cada projeto."
+    },
+
+    "card3": {
+      "securityFits": "Segurança à sua medida",
+      "title": "Uma Abordagem Personalizada às Suas Necessidades",
+      "point1": "Cada organização é única — e a sua segurança deve refletir essa realidade.",
+      "point2": "Desenhamos serviços flexíveis e modulares, totalmente adaptados ao seu setor, nível de maturidade e panorama de ameaças.",
+      "point3": "Nada de soluções genéricas: construímos abordagens focadas nos riscos que realmente importam para o seu negócio."
     }
   }
 }

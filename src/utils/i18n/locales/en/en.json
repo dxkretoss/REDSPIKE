@@ -72,7 +72,7 @@
       "phoneTitle": "Phone Numbers",
       "phonePt": "+351 933 333 444 (PT)",
       "phoneAo": "+244 923 122 222 (AO)",
-      "note": "You may be traveling, to avoid call charges, please contact us via WhatsApp or Telegram."
+      "note": "We may be travelling; to avoid call charges, please contact us via <strong>WhatsApp</strong> or <strong>Telegram</strong>."
     }
   },
 
@@ -203,6 +203,36 @@
       "monitoring": "Security Monitoring",
       "detection": "Threat Detection",
       "protection": "Data Protection"
+    }
+  },
+
+  "Whatweare": {
+    "headerTitle": "What Sets Us",
+    "headerTitleRed": "Apart",
+    "headerSubtitle": "Expertise, customized solutions, data protection, global compliance, and rapid incident response – always with added value.",
+
+    "card1": {
+      "securityFits": "Impact over volume",
+      "title": "Commitment to Excellence",
+      "point1": "We love what we do - and we only take on projects where we can guarantee quality and meaningful results. We don’t accept engagements just to fill a portfolio or collect logos. ",
+      "point2": "We work to deliver impact. That’s why we only commit to missions where we know we can exceed expectations, and when needed, we partner with highly qualified specialists in other cybersecurity domains.",
+      "point3": "The client always gets the right solution - even when it’s not delivered directly by us."
+    },
+
+    "card2": {
+      "securityFits": "Offense by experts",
+      "title": "True Specialists, Proven Expertise",
+      "point1": "All services are delivered by certified professionals with proven experience in offensive security.",
+      "point2": "No intermediaries, no hidden outsourcing, no shortcuts — only specialists who truly understand the techniques real attackers use.",
+      "point3": "Tangible expertise, technical rigor, and full transparency in every engagement."
+    },
+
+    "card3": {
+      "securityFits": "Security that fits",
+      "title": "A Tailored Approach to Your Needs",
+      "point1": "Every organization is unique - and its security must reflect that.",
+      "point2": "We design flexible, modular services fully adapted to your industry, maturity level, and threat landscape.",
+      "point3": "No generic approaches: we build solutions that address the risks that genuinely matter to your business."
     }
   }
 }
