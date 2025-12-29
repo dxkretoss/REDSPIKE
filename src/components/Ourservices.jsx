@@ -1,6 +1,8 @@
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 
+/* ================= DATA ================= */
+
 const services = [
     { key: "services.offensive", icon: "./ourservice/service-1.svg", type: "redspike" },
     { key: "services.webApi", icon: "./ourservice/service-2.svg", type: "redspike" },
@@ -12,7 +14,7 @@ const services = [
     { key: "services.mobile", icon: "./ourservice/service-8.svg", type: "hybrid" },
     { key: "services.forensics", icon: "./ourservice/service-9.svg", type: "hybrid" },
     { key: "services.iot", icon: "./ourservice/service-10.svg", type: "partner" },
-    { key: "services.compliance", icon: "./ourservice/service-11.svg", type: "partner" }
+    { key: "services.compliance", icon: "./ourservice/service-11.svg", type: "partner" },
 ];
 
 const bgByType = {
@@ -22,18 +24,15 @@ const bgByType = {
 };
 
 const dottype = {
-    redspike: "w-4 h-4 rounded-full bg-[#D21717] shadow-[0_0_14px_0_#D21717]",
-    hybrid: "w-4 h-4 rounded-full bg-[#D217CF] shadow-[0_0_14px_0_#D217C6]",
-    partner: "w-4 h-4 rounded-full bg-[#1720D2] shadow-[0_0_14px_0_#3317D2]",
+    redspike: "w-4 h-4 rounded-full bg-[#D21717] shadow-[0_0_14px_#D21717]",
+    hybrid: "w-4 h-4 rounded-full bg-[#D217CF] shadow-[0_0_14px_#D217C6]",
+    partner: "w-4 h-4 rounded-full bg-[#1720D2] shadow-[0_0_14px_#3317D2]",
 };
 
 const imgbg = {
-    redspike:
-        "bg-[linear-gradient(90deg,#932424_0%,#CE4343_100%)] shadow-[0_0_14px_0_#681D1D]",
-    hybrid:
-        "bg-[linear-gradient(90deg,#93248C_0%,#CE43AB_100%)] shadow-[0_0_14px_0_#681D5A]",
-    partner:
-        "bg-[linear-gradient(90deg,#242693_0%,#4346CE_100%)] shadow-[0_0_14px_0_#241D68]",
+    redspike: "bg-[linear-gradient(90deg,#932424_0%,#CE4343_100%)]",
+    hybrid: "bg-[linear-gradient(90deg,#93248C_0%,#CE43AB_100%)]",
+    partner: "bg-[linear-gradient(90deg,#242693_0%,#4346CE_100%)]",
 };
 
 const hoverBorderByType = {
@@ -42,142 +41,122 @@ const hoverBorderByType = {
     partner: "hover:border-b-4 hover:border-[#4346CE]",
 };
 
-/* ================= ANIMATION CONFIG (SAFE) ================= */
+/* ================= ANIMATIONS ================= */
 
-const fade = {
-    hidden: { opacity: 0 },
-    show: { opacity: 1, transition: { duration: 0.5 } },
-};
-
-const scaleFade = {
-    hidden: { opacity: 0, scale: 0.96 },
-    show: {
-        opacity: 1,
-        scale: 1,
-        transition: { duration: 0.4, ease: "easeOut" },
-    },
-};
-
-const stagger = {
+const container = {
     hidden: {},
     show: {
         transition: {
-            staggerChildren: 0.08,
+            staggerChildren: 0.12,
+            delayChildren: 0.1,
         },
     },
 };
+
+const fadeUp = {
+    hidden: { opacity: 0, y: 24 },
+    show: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.6, ease: "easeOut" },
+    },
+};
+
+const cardAnim = {
+    hidden: { opacity: 0, scale: 0.9 },
+    show: {
+        opacity: 1,
+        scale: 1,
+        transition: { duration: 0.45, ease: "easeOut" },
+    },
+};
+
+const innerAnim = {
+    hidden: { opacity: 0, y: 12 },
+    show: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.35, ease: "easeOut" },
+    },
+};
+
+/* ================= COMPONENT ================= */
 
 export default function OurServices() {
     const { t } = useTranslation();
 
     return (
-        <section className="w-full bg-black pt-20 pb-5 px-6 relative overflow-hidden">
-            <div className="max-w-7xl mx-auto">
+        <section className="w-full bg-black mt-20 mb-20 px-6 overflow-hidden">
+            <div className="max-w-[1920px] mx-auto">
 
-                {/* ===== TITLE ===== */}
+                {/* TITLE */}
                 <motion.h2
-                    variants={fade}
+                    variants={fadeUp}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: true }}
+                    viewport={{ once: true, amount: 0.3 }}
                     className="text-center text-5xl mb-4"
                 >
                     <span className="text-white">{t("services.titleWhite")}</span>{" "}
                     <span
-                        className="font-bold text-transparent bg-clip-text [text-shadow:0_0_9.54px_#E4303099]"
+                        className="font-bold text-transparent bg-clip-text"
                         style={{
                             backgroundImage:
-                                "linear-gradient(90.09deg, #C22222 0.08%, #C04646 78.5%)",
+                                "linear-gradient(90deg, #C22222 0%, #C04646 78%)",
                         }}
                     >
                         {t("services.titleRed")}
                     </span>
                 </motion.h2>
 
-                {/* ===== DESCRIPTION ===== */}
+                {/* DESCRIPTION */}
                 <motion.p
-                    variants={fade}
+                    variants={fadeUp}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: true }}
-                    className="max-w-5xl mx-auto text-center text-[16px] text-white mb-12"
+                    viewport={{ once: true, amount: 0.3 }}
+                    className="max-w-5xl mx-auto text-center text-white mb-12"
                 >
                     {t("services.description")}
                 </motion.p>
 
-                {/* ===== LEGEND ===== */}
+                {/* GRID */}
                 <motion.div
-                    variants={fade}
+                    variants={container}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: true }}
-                    className="flex items-center justify-center gap-10"
-                >
-                    {/* unchanged legend content */}
-                    {/* REDSPIKE */}
-                    <div className="flex flex-col items-center gap-3">
-                        <span className="w-6 h-6 rounded-full bg-[#D21717] shadow-[0_0_14px_0_#D21717]" />
-                        <span className="text-white text-lg font-medium tracking-wide">
-                            REDSPIKE
-                        </span>
-                    </div>
-
-                    <div className="h-8 w-px bg-white/30" />
-
-                    <div className="flex flex-col items-center gap-3">
-                        <span className="w-6 h-6 rounded-full bg-[#D217CF] shadow-[0_0_14px_0_#D217C6]" />
-                        <span className="text-white text-lg font-medium tracking-wide">
-                            HYBRID
-                        </span>
-                    </div>
-
-                    <div className="h-8 w-px bg-white/30" />
-
-                    <div className="flex flex-col items-center gap-3">
-                        <span className="w-6 h-6 rounded-full bg-[#1720D2] shadow-[0_0_14px_0_#3317D2]" />
-                        <span className="text-white text-lg font-medium tracking-wide">
-                            PARTNERS
-                        </span>
-                    </div>
-                </motion.div>
-
-                {/* ===== GRID ===== */}
-                <motion.div
-                    variants={stagger}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true }}
+                    viewport={{ once: true, amount: 0.25 }}
                     className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10"
                 >
                     {services.map((item) => (
                         <motion.div
                             key={item.key}
-                            variants={scaleFade}
+                            variants={cardAnim}
+                            whileHover={{ scale: 1.04 }}
                             className={`
                 relative rounded-[24px] p-4
                 ${bgByType[item.type]}
                 border border-[#FFFFFF33]
                 ${hoverBorderByType[item.type]}
-                shadow-[0_0_44px_0_#6612124D]
-                transition-all duration-300
+                shadow-[0_0_44px_#6612124D]
+                transition-all
               `}
                         >
-                            <span
-                                className={`absolute top-4 right-4 ${dottype[item.type]}`}
-                            />
+                            <span className={`absolute top-4 right-4 ${dottype[item.type]}`} />
 
-                            <div
-                                className={`w-10 h-10 mb-4 flex items-center justify-center rounded-lg ${imgbg[item.type]}`}
-                            >
-                                <img src={item.icon} alt="" className="p-1.5" />
-                            </div>
+                            <motion.div variants={container}>
+                                <motion.div variants={innerAnim} className={`w-10 h-10 mb-4 rounded-lg ${imgbg[item.type]}`}>
+                                    <img src={item.icon} alt="" className="p-1.5" />
+                                </motion.div>
 
-                            <h4 className="text-[15px] font-medium text-white mb-2">
-                                {t(`${item.key}.title`)}
-                            </h4>
-                            <p className="text-[12px] text-white leading-relaxed">
-                                {t(`${item.key}.description`)}
-                            </p>
+                                <motion.h4 variants={innerAnim} className="text-white mb-2">
+                                    {t(`${item.key}.title`)}
+                                </motion.h4>
+
+                                <motion.p variants={innerAnim} className="text-white text-sm">
+                                    {t(`${item.key}.description`)}
+                                </motion.p>
+                            </motion.div>
                         </motion.div>
                     ))}
                 </motion.div>

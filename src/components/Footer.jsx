@@ -31,14 +31,14 @@ export default function Footer() {
     const { t } = useTranslation();
 
     return (
-        <footer className="w-full bg-black border-t border-[#FFFFFF1A] relative overflow-hidden">
+        <footer className="w-full px-6 bg-black border-t border-[#FFFFFF1A] relative overflow-hidden">
             {/* ===== TOP SECTION ===== */}
             <motion.div
                 variants={footerContainer}
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true }}
-                className="max-w-[1390px] mx-auto px-6 py-16"
+                className="max-w-[1920px] mx-auto py-16"
             >
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12">
                     {/* Brand */}
@@ -149,7 +149,8 @@ export default function Footer() {
                 className="relative py-10 text-center"
             >
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                    <h1 className="text-[60px] sm:text-[90px] md:text-[120px] font-bold tracking-[0.35em] text-white/5">
+                    <h1 className="text-[60px] sm:text-[90px] md:text-[120px] font-bold tracking-[0.35em] text-white/5"
+                        style={{ fontFamily: "Sora, sans-serif" }}>
                         REDSPIKE
                     </h1>
                 </div>

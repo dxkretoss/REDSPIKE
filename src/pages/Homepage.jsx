@@ -6,18 +6,39 @@ import Ourservices from '../components/Ourservices';
 import IntroSection from '../components/IntroSection';
 import OffenseHero from '../components/OffenseHero';
 import Whatweare from '../components/Whatweare';
+import ScrollToTopButton from '../components/ScrollToTopButton';
 export default function Homepage() {
     return (
         <div className="relative min-h-screen">
             <div className="fixed bottom-6 right-6 z-50">
                 <LanguageSwitcher />
             </div>
-            <OffenseHero />
-            <IntroSection />
-            <Whatweare />
-            <Ourservices />
-            <OurClient />
-            <Contact />
+
+            <ScrollToTopButton />
+
+            <section id="home">
+                <OffenseHero />
+            </section>
+
+            <section id="intro">
+                <IntroSection />
+            </section>
+
+            <section id="services">
+                <Ourservices />
+            </section>
+
+            <section id="what-we-are">
+                <Whatweare />
+            </section>
+
+            <section id="clients">
+                <OurClient />
+            </section>
+
+            <section id="contact">
+                <Contact />
+            </section>
         </div>
     )
 }

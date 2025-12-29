@@ -43,8 +43,8 @@ export default function Contact() {
     const { t } = useTranslation();
 
     return (
-        <section className="w-full bg-black py-20 px-6">
-            <div className="max-w-7xl mx-auto">
+        <section className="w-full bg-black mt-20 mb-20 px-6">
+            <div className="max-w-[1920px] mx-auto">
 
                 {/* ================= TITLE ================= */}
                 <motion.h2
@@ -53,6 +53,7 @@ export default function Contact() {
                     whileInView="show"
                     viewport={{ once: true }}
                     className="text-center text-5xl font-semibold mb-12"
+                    style={{ fontFamily: "Sora, sans-serif" }}
                 >
                     <span
                         className="font-bold text-transparent bg-clip-text [text-shadow:0_0_9.54px_#E4303099]"
@@ -74,10 +75,23 @@ export default function Contact() {
                         initial="hidden"
                         whileInView="show"
                         viewport={{ once: true }}
-                        className="rounded-[8px] p-6 bg-[linear-gradient(180deg,#0B0F16_0%,#240304_100%)]
-            border border-[#a5a4a4be]
-            shadow-[0_0_10px_0_#0000000D,0_0_44px_0_#A33F3F4D]"
+                        whileHover={{
+                            scale: 1.03,
+                            boxShadow: "0 0 60px rgba(210, 23, 23, 0.45)",
+                        }}
+                        transition={{
+                            type: "spring",
+                            stiffness: 200,
+                            damping: 18,
+                        }}
+                        className="
+    rounded-[8px] p-6
+    bg-[linear-gradient(180deg,#0B0F16_0%,#240304_100%)]
+    border border-[#a5a4a4be]
+    shadow-[0_0_10px_0_#0000000D,0_0_44px_0_#A33F3F4D]
+  "
                     >
+
                         <form className="space-y-4">
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -123,7 +137,8 @@ export default function Contact() {
                     >
 
                         <div>
-                            <h3 className="text-[22px] font-semibold mb-2 text-[#932424]">
+                            <h3 className="text-[22px] font-semibold mb-2 text-[#932424]"
+                                style={{ fontFamily: "Sora, sans-serif" }}>
                                 {t("contact.info.title")}
                             </h3>
                             <p className="text-[16px] text-[#FFFFFFCC] max-w-xl">

@@ -40,21 +40,21 @@
   },
 
   "contact": {
-    "titleRed": "Contato",
-    "titleWhite": "Conosco",
+    "titleRed": "Entre em",
+    "titleWhite": "Contacto",
 
     "form": {
-      "firstName": "Nome*",
-      "firstNamePlaceholder": "João",
+      "firstName": "Nome Completo *",
+      "firstNamePlaceholder": "John",
       "email": "Email*",
       "emailPlaceholder": "joao.silva@gmail.com",
-      "phone": "Telefone*",
+      "phone": "Telefone *",
       "phonePlaceholder": "+351 933 333 444",
       "company": "Empresa",
       "companyPlaceholder": "Red Spike",
-      "role": "Cargo*",
-      "rolePlaceholder": "Gerente",
-      "service": "Serviço de Interesse*",
+      "role": "Cargo na Empresa *",
+      "rolePlaceholder": "Manager",
+      "service": "Com Interesse em *",
       "message": "Mensagem",
       "messagePlaceholder": "Conte-nos sobre suas necessidades...",
       "submit": "Enviar"
@@ -62,33 +62,33 @@
 
     "info": {
       "title": "Informações de Contato",
-      "description": "Entre em contato conosco ou envie o formulário para solicitar mais informações.",
+      "description": "Entre em contacto connosco ou preencha o formulário para solicitar informação adicional",
       "locationTitle": "Localização",
-      "locationText": "De Portugal e Angola para o Mundo",
+      "locationText": "De Portugal para o Mundo",
       "availabilityTitle": "Disponibilidade",
       "availabilityText": "Disponível 24 horas por dia, 7 dias por semana, 365 dias por ano",
       "emailTitle": "Endereço de Email",
       "email": "info@redspike.global",
-      "phoneTitle": "Números de Telefone",
-      "phonePt": "+351 933 333 444 (PT)",
-      "phoneAo": "+244 923 122 222 (AO)",
-      "note": "Podemos estar a viajar; para evitar custos de chamadas, por favor contacte-nos via <strong>WhatsApp</strong> ou <strong>Telegram</strong>."
+      "phoneTitle": "Liga para nós",
+      "phonePt": "+351 935 393 440 (PT)",
+      "phoneAo": "+244 939 122 922 (AO)",
+      "note": "Podemos estar em viagem. Para evitar custos de chamada, contacte-nos via <strong>WhatsApp</strong> ou <strong>Telegram</strong>."
     }
   },
   "clients": {
     "titleRed": "Setores dos",
     "titleWhite": "Nossos Clientes",
-    "description": "Trabalhamos em parceria com uma ampla gama de organizações pequenas, médias e grandes em mercados nacionais e internacionais. Nosso foco é fornecer soluções confiáveis e de alta qualidade que fortaleçam operações, apoiem objetivos estratégicos e construam relacionamentos duradouros. Se desejar conhecer nossa experiência ou discutir como podemos apoiar seus projetos, teremos prazer em agendar uma reunião com você.",
+    "description": "Colaboramos com uma vasta diversidade de organizações de pequena, média e grande dimensão, tanto a nível nacional como internacional. O nosso compromisso é fornecer soluções fiáveis e de elevada qualidade, que reforcem as operações, apoiem os objetivos estratégicos e promovam relações duradouras. Se quiser conhecer melhor a nossa experiência ou discutir como podemos apoiar os seus projetos, teremos todo o gosto em agendar uma reunião consigo.",
 
-    "banking": "Bancos e Seguros",
-    "government": "Governo",
-    "retail": "Varejo",
-    "it": "Tecnologia da Informação",
+    "banking": "Banca e Seguradoras",
+    "government": "Governamental",
+    "retail": "Retalho",
+    "it": "Tecnologias de Informação",
     "healthcare": "Saúde",
-    "industry": "Indústria",
-    "telecom": "Telecomunicações",
-    "transportation": "Transporte",
-    "service": "Organizações de Serviços",
+    "industry": "Industria",
+    "telecom": "Telecom",
+    "transportation": "Transportes",
+    "service": "Prestadores de Serviços",
     "energy": "Energia"
   },
   "services": {
@@ -177,12 +177,12 @@
   },
   "offenseHero": {
     "title": {
-      "line1": "Segurança Ofensiva em",
-      "highlight": "Cibersegurança",
-      "line2": "Serviços"
+      "line1": "Serviços Profissionais de",
+      "highlight": "Segurança",
+      "line2": "Ofensiva"
     },
-    "subtitle": "Identifique fraquezas. Previna incidentes. A mentalidade do adversário trabalhando a seu favor.",
-    "cta": "Solicitar Proposta",
+    "subtitle": "Identificar fragilidades. Prevenir Incidentes - Hackers a trabalhar por si.",
+    "cta": "ENTRE EM CONTACTO",
     "notes": {
       "1": "Testes de penetração são mais baratos que ransomware ou data breaches.",
       "2": "Identificar e mitigar as vulnerabilidades que realmente impactam a continuidade do negócio.",

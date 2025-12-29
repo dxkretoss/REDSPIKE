@@ -1,5 +1,61 @@
 import { useTranslation } from "react-i18next";
 import { Shield, Bug, Headset, CheckCircle, ArrowUpRight } from "lucide-react";
+import { motion, useMotionValue, useTransform, animate, useInView } from "framer-motion";
+import { useEffect, useRef } from "react";
+
+
+const AnimatedNumber = ({ value }) => {
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true, margin: "-80px" });
+
+    // Handle 24/7 → animate both sides
+    if (value.includes("/")) {
+        const [left, right] = value.split("/");
+
+        return (
+            <span ref={ref} className="inline-flex items-baseline gap-1">
+                <SingleNumber number={parseInt(left, 10)} start={isInView} />
+                <span>/</span>
+                <SingleNumber number={parseInt(right, 10)} start={isInView} />
+            </span>
+        );
+    }
+
+    // Handle normal values (10+, 500+, 100%)
+    const match = value.match(/([\d,]+)(.*)/);
+    const number = match ? parseInt(match[1].replace(/,/g, ""), 10) : 0;
+    const suffix = match ? match[2] : "";
+
+    return (
+        <span ref={ref} className="inline-flex items-baseline gap-1">
+            <SingleNumber number={number} start={isInView} />
+            <span>{suffix}</span>
+        </span>
+    );
+};
+
+
+/* ================= SINGLE COUNTER ================= */
+
+const SingleNumber = ({ number, start }) => {
+    const motionValue = useMotionValue(0);
+    const rounded = useTransform(motionValue, (latest) =>
+        Math.floor(latest).toLocaleString()
+    );
+
+    useEffect(() => {
+        if (!start) return;
+
+        const controls = animate(motionValue, number, {
+            duration: number < 10 ? 0.6 : 1.3,
+            ease: "easeOut",
+        });
+
+        return controls.stop;
+    }, [start, number, motionValue]);
+
+    return <motion.span>{rounded}</motion.span>;
+};
 
 const stats = [
     { key: "hero.stats.experience", icon: './intro/intro-1.svg' },
@@ -12,11 +68,11 @@ export default function IntroSection() {
     const { t } = useTranslation();
 
     return (
-        <section className="w-full bg-black px-6 pt-20 relative overflow-hidden"
+        <section className="w-full bg-black px-6 mt-20 mb-20 relative overflow-hidden"
             style={{
                 backgroundImage: 'url(/protection-bg-image.svg)'
             }}>
-            <div className="max-w-7xl mx-auto">
+            <div className="max-w-[1920px] mx-auto">
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
@@ -28,8 +84,9 @@ export default function IntroSection() {
                             {t("hero.badge")}
                         </span>
 
-                        <h1 className="text-4xl lg:text-5xl text-white leading-tight mb-6  capitalize">
-                            {t("hero.title.line1")}{" "}
+                        <h1 className="text-4xl lg:text-5xl text-white leading-tight mb-6  capitalize"
+                            style={{ fontFamily: "Sora, sans-serif" }}>
+                            <span>{t("hero.title.line1")}</span> {" "}
                             <span className="font-bold text-transparent bg-clip-text [text-shadow:0_0_9.54px_#E4303099]"
                                 style={{
                                     backgroundImage:
@@ -83,28 +140,65 @@ export default function IntroSection() {
                 </div>
 
                 {/* STATS */}
-                <div className="max-w-6xl mx-auto flex gap-20 mt-20 items-center bg-[linear-gradient(180deg,#240303_0%,#0E0202_100%)] border border-[#FFFFFF33] rounded-[24px] p-6">
-                    {stats.map((item) => {
-                        const Icon = item.icon;
+                <div
+                    className="
+                        max-w-6xl mx-auto
+                        mt-12 md:mt-20
+                        bg-[linear-gradient(180deg,#240303_0%,#0E0202_100%)]
+                        border border-[#FFFFFF33]
+                        rounded-[24px]
+                    p-6 md:p-8
+                    "
+                >
+                    <div
+                        className="
+                        grid
+                        grid-cols-1
+                        sm:grid-cols-2
+                        md:grid-cols-3
+                        lg:grid-cols-4
+                        gap-6 md:gap-10
+                        "
+                    >
+                        {stats.map((item) => {
+                            const Icon = item.icon;
 
-                        return (
-                            <div key={item.key}>
-                                <div className="flex items-center gap-2">
-                                    <div className="w-14 h-14 mb-3 p-3 flex items-center justify-center
-                                rounded-[12px] bg-[#776767]">
-                                        <img src={Icon} alt={Icon} />
+                            return (
+                                <div
+                                    key={item.key}
+                                    className="flex flex-col"
+                                >
+                                    <div className="flex items-center gap-3 mb-2"
+                                        style={{ fontFamily: "Sora, sans-serif" }}>
+                                        <div
+                                            className="
+                                            w-12 h-12 md:w-14 md:h-14
+                                            p-3
+                                            flex items-center justify-center
+                                            rounded-[12px]
+                                            bg-[#776767]
+                                        "
+                                        >
+                                            <img
+                                                src={Icon}
+                                                alt=""
+                                                className="w-full h-full object-contain"
+                                            />
+                                        </div>
+
+                                        <p className="text-[22px] md:text-[28px] font-semibold text-white">
+                                            {/* {t(`${item.key}.value`)} */}
+                                            <AnimatedNumber value={t(`${item.key}.value`)} />
+                                        </p>
                                     </div>
 
-                                    <p className="text-[28px] font-semibold text-white">
-                                        {t(`${item.key}.value`)}
+                                    <p className="text-[14px] md:text-[16px] text-[#FFFFFFE5]">
+                                        {t(`${item.key}.label`)}
                                     </p>
                                 </div>
-                                <p className="text-[16px] text-[#FFFFFFE5]">
-                                    {t(`${item.key}.label`)}
-                                </p>
-                            </div>
-                        );
-                    })}
+                            );
+                        })}
+                    </div>
                 </div>
 
             </div>

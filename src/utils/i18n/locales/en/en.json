@@ -44,17 +44,17 @@
     "titleWhite": "Us",
 
     "form": {
-      "firstName": "First Name*",
+      "firstName": "Full Name *",
       "firstNamePlaceholder": "John",
       "email": "Email*",
       "emailPlaceholder": "john.doe@gmail.com",
-      "phone": "Phone*",
+      "phone": "Phone *",
       "phonePlaceholder": "+1 987 654 3210",
       "company": "Company",
       "companyPlaceholder": "Red Spike",
-      "role": "Company Role*",
+      "role": "Company Role *",
       "rolePlaceholder": "Manager",
-      "service": "Service of Interest*",
+      "service": "Service of Interest *",
       "message": "Message",
       "messagePlaceholder": "Tell us about your requirements...",
       "submit": "Submit"
@@ -64,14 +64,14 @@
       "title": "Contact Information",
       "description": "Reach out to us or submit the form to request additional information.",
       "locationTitle": "Location",
-      "locationText": "From Portugal & Angola to the World",
+      "locationText": "From Portugal to the World",
       "availabilityTitle": "Availability",
       "availabilityText": "Available 24 hours a day, 7 days a week, 365 days a year",
       "emailTitle": "Email Address",
       "email": "info@redspike.global",
-      "phoneTitle": "Phone Numbers",
-      "phonePt": "+351 933 333 444 (PT)",
-      "phoneAo": "+244 923 122 222 (AO)",
+      "phoneTitle": "Call Us",
+      "phonePt": "+351 935 393 440 (PT)",
+      "phoneAo": "+244 939 122 922 (AO)",
       "note": "We may be travelling; to avoid call charges, please contact us via <strong>WhatsApp</strong> or <strong>Telegram</strong>."
     }
   },
@@ -183,7 +183,7 @@
       "line2": "Services"
     },
     "subtitle": "Identify Weaknesses. Prevent Incidents. The Adversary’s Mindset Working For You.",
-    "cta": "Get a Proposal",
+    "cta": "CONTACT US",
     "notes": {
       "1": "A pentest is cheaper than ransomware or a data breach.",
       "2": "Identify and mitigate the vulnerabilities that truly matter to business continuity.",

@@ -39,13 +39,13 @@ export default function OurClient() {
 
     return (
         <section
-            className="w-full bg-black pt-20 pb-5 px-6 relative overflow-hidden"
+            className="w-full bg-black mt-20 mb-20 px-6 relative overflow-hidden"
             style={{
                 backgroundImage: "url(./ourclients/bg.svg)",
                 backgroundPosition: "center",
             }}
         >
-            <div className="max-w-7xl mx-auto">
+            <div className="max-w-[1920px] mx-auto">
 
                 {/* ===== TITLE ===== */}
                 <motion.h2
@@ -54,6 +54,7 @@ export default function OurClient() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
                     className="text-center text-5xl mb-4"
+                    style={{ fontFamily: "Sora, sans-serif" }}
                 >
                     <span
                         className="font-bold text-transparent bg-clip-text [text-shadow:0_0_9.54px_#E4303099]"
