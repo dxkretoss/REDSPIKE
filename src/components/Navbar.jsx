@@ -13,25 +13,40 @@ const navItems = [
     { key: "nav.blog", path: "/blog" },
 ];
 
+const containerVariants = {
+    hidden: {},
+    visible: {
+        transition: { staggerChildren: 0.06 },
+    },
+};
+
+const itemVariants = {
+    hidden: { y: -6, opacity: 0 },
+    visible: {
+        y: 0,
+        opacity: 1,
+        transition: { ease: [0.16, 1, 0.3, 1], duration: 0.5 },
+    },
+};
+
 const Navbar = () => {
     const { t } = useTranslation();
     const [open, setOpen] = useState(false);
 
     return (
         <motion.header
-            initial={{ y: -20, opacity: 0 }}
+            initial={{ y: -24, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="w-full bg-black h-[80px] border-b border-[#FFFFFF80] flex items-center relative z-50"
         >
             <div className="w-full px-6">
                 <div className="flex items-center justify-between">
 
-                    {/* LEFT: Logo */}
+                    {/* LOGO */}
                     <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 0.2 }}
+                        animate={{ y: [0, -2, 0] }}
+                        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                         className="flex items-center"
                     >
                         <img src="/mainlogo.svg" alt="RedSpike" className="h-[50px] w-auto" />
@@ -41,19 +56,23 @@ const Navbar = () => {
                     <div className="flex items-center gap-8">
 
                         {/* DESKTOP NAV */}
-                        <nav className="hidden md:flex items-center gap-2">
-                            {navItems.map((item, index) => (
+                        <motion.nav
+                            className="hidden md:flex items-center gap-2"
+                            variants={containerVariants}
+                            initial="hidden"
+                            animate="visible"
+                        >
+                            {navItems.map((item) => (
                                 <motion.div
                                     key={item.key}
-                                    initial={{ opacity: 0, y: -6 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.3 + index * 0.05 }}
+                                    variants={itemVariants}
                                     whileHover={{ y: -2 }}
+                                    className="relative"
                                 >
                                     <NavLink
                                         to={item.path}
                                         className={({ isActive }) =>
-                                            `px-4 py-2 rounded-[6px] text-sm transition-all
+                                            `px-4 py-2 rounded-[6px] text-sm transition-all relative
                       ${isActive
                                                 ? "text-[#D21717] bg-gradient-to-r from-[rgba(147,36,36,0.2)] to-[rgba(206,67,67,0.2)]"
                                                 : "text-white hover:text-[#D21717]"
@@ -61,39 +80,55 @@ const Navbar = () => {
                                         }
                                     >
                                         {t(item.key)}
+
+                                        {/* HOVER LINE */}
+                                        <motion.span
+                                            layoutId="nav-underline"
+                                            className="absolute left-2 right-2 bottom-1 h-[1px] bg-[#D21717]"
+                                            initial={{ scaleX: 0 }}
+                                            whileHover={{ scaleX: 1 }}
+                                            transition={{ duration: 0.3 }}
+                                        />
                                     </NavLink>
                                 </motion.div>
                             ))}
-                        </nav>
+                        </motion.nav>
 
-                        {/* CONTACT BUTTON (DESKTOP) */}
+                        {/* CTA BUTTON */}
                         <motion.button
-                            whileHover={{ y: -2, scale: 1.02 }}
-                            whileTap={{ scale: 0.98 }}
-                            transition={{ type: "spring", stiffness: 300 }}
+                            animate={{
+                                boxShadow: [
+                                    "0 0 18px rgba(255,0,0,0.4)",
+                                    "0 0 32px rgba(255,0,0,0.8)",
+                                    "0 0 18px rgba(255,0,0,0.4)",
+                                ],
+                            }}
+                            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                            whileHover={{ scale: 1.05, y: -2 }}
+                            whileTap={{ scale: 0.97 }}
+                            className="hidden md:flex items-center gap-1 px-4 py-2 text-sm text-white rounded-[8px]
+                bg-gradient-to-r from-[rgba(147,36,36,0.2)] to-[rgba(206,67,67,0.2)]
+                border border-[#932424]
+                hover:text-[#D21717]
+                transition-all"
                             onClick={() =>
                                 document.getElementById("contact")?.scrollIntoView({
                                     behavior: "smooth",
                                 })
                             }
-                            className="hidden md:flex items-center gap-1 px-4 py-2 text-sm text-white rounded-[8px]
-                bg-gradient-to-r from-[rgba(147,36,36,0.2)] to-[rgba(206,67,67,0.2)]
-                border border-[#932424]
-                hover:text-[#D21717]
-                transition-all
-                shadow-[0_0_24px_0px_#A33F3F80]"
                         >
-                            <span>{t("nav.contactUs")}</span>
+                            {t("nav.contactUs")}
                             <ArrowUpRight size={16} />
                         </motion.button>
 
-                        {/* MOBILE MENU BUTTON */}
-                        <button
+                        {/* MOBILE TOGGLE */}
+                        <motion.button
+                            whileTap={{ scale: 0.9 }}
                             className="md:hidden text-white"
                             onClick={() => setOpen(!open)}
                         >
                             {open ? <X size={28} /> : <Menu size={28} />}
-                        </button>
+                        </motion.button>
                     </div>
                 </div>
             </div>
@@ -105,43 +140,55 @@ const Navbar = () => {
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
-                        transition={{ duration: 0.3 }}
+                        transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                         className="md:hidden absolute top-[80px] left-0 w-full bg-black border-t border-[#FFFFFF20]"
                     >
-                        <div className="flex flex-col p-6 gap-4">
+                        <motion.div
+                            className="flex flex-col p-6 gap-4"
+                            initial="hidden"
+                            animate="visible"
+                            variants={{
+                                visible: { transition: { staggerChildren: 0.08 } },
+                            }}
+                        >
                             {navItems.map((item) => (
-                                <NavLink
+                                <motion.div
                                     key={item.key}
-                                    to={item.path}
-                                    onClick={() => setOpen(false)}
-                                    className={({ isActive }) =>
-                                        `px-4 py-3 rounded-md text-sm transition-all
-                    ${isActive
-                                            ? "text-[#D21717] bg-[#D2171720]"
-                                            : "text-white hover:text-[#D21717]"
-                                        }`
-                                    }
+                                    variants={itemVariants}
                                 >
-                                    {t(item.key)}
-                                </NavLink>
+                                    <NavLink
+                                        to={item.path}
+                                        onClick={() => setOpen(false)}
+                                        className={({ isActive }) =>
+                                            `px-4 py-3 rounded-md text-sm transition-all block
+                      ${isActive
+                                                ? "text-[#D21717] bg-[#D2171720]"
+                                                : "text-white hover:text-[#D21717]"
+                                            }`
+                                        }
+                                    >
+                                        {t(item.key)}
+                                    </NavLink>
+                                </motion.div>
                             ))}
 
-                            {/* CONTACT BUTTON (MOBILE) */}
-                            <button
+                            {/* MOBILE CTA */}
+                            <motion.button
+                                whileTap={{ scale: 0.96 }}
+                                className="mt-4 flex items-center justify-center gap-1 px-4 py-3 text-sm text-white rounded-[8px]
+                  bg-gradient-to-r from-[rgba(147,36,36,0.2)] to-[rgba(206,67,67,0.2)]
+                  border border-[#932424]"
                                 onClick={() => {
                                     setOpen(false);
                                     document.getElementById("contact")?.scrollIntoView({
                                         behavior: "smooth",
                                     });
                                 }}
-                                className="mt-4 flex items-center justify-center gap-1 px-4 py-3 text-sm text-white rounded-[8px]
-                  bg-gradient-to-r from-[rgba(147,36,36,0.2)] to-[rgba(206,67,67,0.2)]
-                  border border-[#932424]"
                             >
                                 {t("nav.contactUs")}
                                 <ArrowUpRight size={16} />
-                            </button>
-                        </div>
+                            </motion.button>
+                        </motion.div>
                     </motion.div>
                 )}
             </AnimatePresence>

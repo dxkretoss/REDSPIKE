@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const socialLinks = [
     { href: "#", img: "/facebook.svg", alt: "Facebook" },
@@ -60,13 +61,22 @@ export default function Footer() {
                         <h4 className="text-[14px] text-[#FFFFFFBF] mb-4 uppercase tracking-wider">
                             {t("footer.usefulLinks.title")}
                         </h4>
+
                         <ul className="space-y-2 text-[16px] text-[#FFFFFF]">
-                            {["home", "about", "services", "contact", "blog"].map((key) => (
-                                <li
-                                    key={key}
-                                    className="hover:text-white transition-colors cursor-pointer"
-                                >
-                                    {t(`nav.${key}`)}
+                            {[
+                                { key: "home", path: "/" },
+                                { key: "about", path: "/about" },
+                                { key: "services", path: "/services" },
+                                { key: "contact", path: "/contacts" },
+                                { key: "blog", path: "/blog" },
+                            ].map(({ key, path }) => (
+                                <li key={key}>
+                                    <Link
+                                        to={path}
+                                        className="hover:text-[#D21717] transition-colors"
+                                    >
+                                        {t(`nav.${key}`)}
+                                    </Link>
                                 </li>
                             ))}
                         </ul>
@@ -78,13 +88,18 @@ export default function Footer() {
                             {t("footer.terms.title")}
                         </h4>
                         <ul className="space-y-2 text-[16px] text-[#FFFFFF]">
-                            <li className="hover:text-white transition-colors cursor-pointer">
-                                {t("footer.terms.privacy")}
+                            <li>
+                                <Link to="#" className="hover:text-[#D21717] transition-colors">
+                                    {t("footer.terms.privacy")}
+                                </Link>
                             </li>
-                            <li className="hover:text-white transition-colors cursor-pointer">
-                                {t("footer.terms.conditions")}
+                            <li>
+                                <Link to="#" className="hover:text-[#D21717] transition-colors">
+                                    {t("footer.terms.conditions")}
+                                </Link>
                             </li>
                         </ul>
+
                     </motion.div>
 
                     {/* Contact */}

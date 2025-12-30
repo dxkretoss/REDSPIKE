@@ -86,7 +86,7 @@ export default function OurServices() {
     const { t } = useTranslation();
 
     return (
-        <section className="w-full bg-black mt-20 mb-20 px-6 overflow-hidden">
+        <section className="w-full bg-black mt-20 mb-10 px-6 overflow-hidden">
             <div className="max-w-[1920px] mx-auto">
 
                 {/* TITLE */}
@@ -126,7 +126,7 @@ export default function OurServices() {
                     initial="hidden"
                     whileInView="show"
                     viewport={{ once: true, amount: 0.25 }}
-                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10"
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10 mb-10"
                 >
                     {services.map((item) => (
                         <motion.div
@@ -149,11 +149,11 @@ export default function OurServices() {
                                     <img src={item.icon} alt="" className="p-1.5" />
                                 </motion.div>
 
-                                <motion.h4 variants={innerAnim} className="text-white mb-2">
+                                <motion.h4 variants={innerAnim} className="text-white mb-2 text-[16px] font-semibold">
                                     {t(`${item.key}.title`)}
                                 </motion.h4>
 
-                                <motion.p variants={innerAnim} className="text-white text-sm">
+                                <motion.p variants={innerAnim} className="text-white/70 text-sm">
                                     {t(`${item.key}.description`)}
                                 </motion.p>
                             </motion.div>
