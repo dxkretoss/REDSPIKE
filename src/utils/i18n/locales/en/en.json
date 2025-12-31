@@ -16,7 +16,7 @@
       "highlight": "Cybersecurity",
       "line2": "Services"
     },
-    "subtitle": "Identify Weaknesses. Prevent Incidents. The Adversary’s Mindset Working For You.",
+    "subtitle": "Identify Weaknesses. Prevent Incidents. - The Adversary’s Mindset Working for You.",
     "cta": "Get a Proposal",
     "notes": {
       "1": "A pentest is cheaper than ransomware or a data breach.",
@@ -51,7 +51,7 @@
 
     "subtitle": "Controls Prove Intent. Offense Proves Effectiveness.",
 
-    "description": "If you don't challenge your controls, cybersecurity will. We help you identify high-impact weaknesses before they become high-impact incidents. Our multidisciplinary, certified team ensures that security in your organization is not a feeling, but a continuous, evidence-driven practice you can demonstrate to your business partners and stakeholders.",
+    "description": "If you don’t challenge your controls, cybercriminals will. We help you identify high-impact weaknesses before they become high-impact incidents. Our multidisciplinary, certified team ensures that security in your organisation is not a feeling, but a continuous, evidence-driven practice you can demonstrate to business partners, clients and stakeholders",
 
     "cta": "Contact Us",
 
@@ -178,7 +178,7 @@
     "titleWhite": "Us",
 
     "form": {
-      "firstName": "Full Name *",
+      "firstName": "First Name *",
       "firstNamePlaceholder": "John",
       "email": "Email*",
       "emailPlaceholder": "john.doe@gmail.com",
