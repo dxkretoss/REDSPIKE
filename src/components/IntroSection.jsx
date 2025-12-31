@@ -6,6 +6,7 @@ import {
     useTransform,
     animate,
     useInView,
+    useSpring
 } from "framer-motion";
 import { useEffect, useRef } from "react";
 
@@ -42,14 +43,19 @@ const glowTextVariants = {
     hidden: { opacity: 0 },
     visible: {
         opacity: 1,
+        y: [0, -1.5, 0],
         textShadow: [
-            "0 0 0px rgba(255,60,60,0)",
-            "0 0 18px rgba(255,60,60,0.65)",
-            "0 0 12px rgba(255,60,60,0.45)",
+            "0 0 10px rgba(255,70,70,0.35)",
+            "0 0 22px rgba(255,70,70,0.7)",
+            "0 0 10px rgba(255,70,70,0.35)",
         ],
-        transition: { duration: 1.4, ease: "easeOut" },
+        transition: {
+            duration: 3.2,
+            ease: "easeInOut",
+        },
     },
 };
+
 
 /* ================= ANIMATED NUMBER ================= */
 
@@ -114,19 +120,81 @@ export default function IntroSection() {
     const sectionRef = useRef(null);
     const isInView = useInView(sectionRef, { once: true, margin: "-120px" });
 
+    const containerRef = useRef(null);
+
+    // Raw motion values
+    const x = useMotionValue(0);
+    const y = useMotionValue(0);
+
+    // Smooth spring (important)
+    const smoothX = useSpring(x, { stiffness: 120, damping: 18 });
+    const smoothY = useSpring(y, { stiffness: 120, damping: 18 });
+
+    const handleMouseMove = (e) => {
+        const rect = containerRef.current.getBoundingClientRect();
+
+        // Normalize cursor position (-0.5 → 0.5)
+        const offsetX = (e.clientX - rect.left) / rect.width - 0.5;
+        const offsetY = (e.clientY - rect.top) / rect.height - 0.5;
+
+        // Control strength here
+        x.set(offsetX * 30);
+        y.set(offsetY * 30);
+    };
+
+    const resetPosition = () => {
+        x.set(0);
+        y.set(0);
+    };
+
     return (
         <motion.section
             ref={sectionRef}
-            className="w-full bg-black px-6 mt-20 mb-20 relative overflow-hidden"
-            // style={{ backgroundImage: "url(/protection-bg-image.svg)" }}
+            className="w-full bg-black px-[20px] md:px-[40px] 2xl:px-[90px] mt-20 relative overflow-hidden"
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.9 }}
         >
+            {/* ===== AMBIENT CYBER PULSE ===== */}
+            <motion.div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                    background:
+                        "radial-gradient(circle at center, rgba(255,60,60,0.12), transparent 70%)",
+                }}
+                animate={{
+                    opacity: [0.25, 0.45, 0.25],
+                    scale: [1, 1.08, 1],
+                }}
+                transition={{
+                    duration: 16,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                }}
+            />
+
+            {/* ===== SCAN LINE OVERLAY ===== */}
+            <motion.div
+                className="absolute inset-0 pointer-events-none opacity-[0.06]"
+                style={{
+                    backgroundImage:
+                        "linear-gradient(to right, rgba(255,255,255,0.12) 1px, transparent 1px)",
+                    backgroundSize: "120px 100%",
+                }}
+                animate={{ backgroundPositionX: ["0%", "100%"] }}
+                transition={{
+                    duration: 22,
+                    repeat: Infinity,
+                    ease: "linear",
+                }}
+            />
+
+            {/* BACKGROUND IMAGE */}
             <div
                 className="absolute inset-0 bg-center bg-no-repeat bg-cover opacity-50"
                 style={{ backgroundImage: "url(/protection-bg-image.svg)" }}
             />
+
             <div className="relative z-10 max-w-[1920px] mx-auto">
 
                 {/* MAIN GRID */}
@@ -155,7 +223,8 @@ export default function IntroSection() {
                                 variants={glowTextVariants}
                                 className="font-bold text-transparent bg-clip-text"
                                 style={{
-                                    backgroundImage: "linear-gradient(90deg,#C22222,#C04646)",
+                                    backgroundImage:
+                                        "linear-gradient(90deg,#C22222,#C04646)",
                                 }}
                             >
                                 {t("hero.title.highlight")}
@@ -165,70 +234,76 @@ export default function IntroSection() {
                                 variants={glowTextVariants}
                                 className="font-bold text-transparent bg-clip-text"
                                 style={{
-                                    backgroundImage: "linear-gradient(90deg,#C22222,#C04646)",
+                                    backgroundImage:
+                                        "linear-gradient(90deg,#C22222,#C04646)",
                                 }}
                             >
                                 {t("hero.title.line2")}
                             </motion.span>
                         </motion.h1>
 
-                        <motion.p variants={itemVariants} className="text-[16px] text-white max-w-xl mb-6">
+                        <motion.p
+                            variants={itemVariants}
+                            className="text-[16px] text-white max-w-xl mb-6"
+                        >
                             {t("hero.subtitle")}
                         </motion.p>
 
-                        <motion.p variants={itemVariants} className="text-sm text-white/60 max-w-xl mb-8">
+                        <motion.p
+                            variants={itemVariants}
+                            className="text-sm text-white/60 max-w-xl mb-8"
+                        >
                             {t("hero.description")}
                         </motion.p>
 
                         <motion.button
-                            variants={itemVariants}
-                            whileHover={{
-                                scale: 1.08,
-                                boxShadow: "0 0 40px rgba(255,0,0,0.65)",
+                            onClick={() => {
+                                document.getElementById("contact")?.scrollIntoView({
+                                    behavior: "smooth",
+                                });
                             }}
+                            variants={itemVariants}
                             whileTap={{ scale: 0.96 }}
                             className="
-                inline-flex items-center gap-2
-                px-5 py-2.5 rounded-md text-sm font-medium text-white
-                bg-gradient-to-r from-[rgba(147,36,36,0.25)] to-[rgba(206,67,67,0.25)]
-                border border-[#932424]
-                shadow-[0_0_24px_#A33F3F80]
-              "
+                        inline-flex items-center gap-2
+                        px-5 py-2.5 rounded-md text-sm font-medium text-white
+                        bg-gradient-to-r from-[rgba(147,36,36,0.25)] to-[rgba(206,67,67,0.25)]
+                        border border-[#e47575a2] shadow-[0_0_24px_#A33F3F80]
+                        "
                         >
                             {t("hero.cta")}
                             <ArrowUpRight size={16} />
                         </motion.button>
+
+
                     </motion.div>
 
                     {/* RIGHT ILLUSTRATION */}
                     <motion.div
-                        className="hidden lg:flex justify-center lg:-mr-6 relative"
+                        ref={containerRef}
+                        onMouseMove={handleMouseMove}
+                        onMouseLeave={resetPosition}
+                        className="hidden lg:flex justify-center -mr-[20px] md:-mr-[40px] 2xl:-mr-[90px] relative"
                     >
-                        {/* TOP IMAGE */}
+                        {/* TOP IMAGE — CURSOR PARALLAX */}
                         <motion.img
                             src="/Group 1376156983.svg"
                             alt="Top Illustration"
-                            className="absolute z-20 w-[350px]"
-                            initial={{ y: 0 }}
-                            animate={{
-                                y: [0, -16, 0],
+                            className="absolute z-20 w-[350px] pointer-events-none"
+                            style={{
+                                x: smoothX,
+                                y: smoothY,
                             }}
-                            transition={{
-                                duration: 3,
-                                repeat: Infinity,
-                                ease: "easeInOut",
-                            }}
+                            animate={{ y: [0, -18, 0], rotateZ: [0, 0.4, 0], }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", }}
                         />
 
-
-                        {/* BOTTOM IMAGE */}
+                        {/* BOTTOM IMAGE — STATIC */}
                         <img
                             src="/Group 1376156982.svg"
                             alt="Bottom Illustration"
                             className="relative z-10"
                         />
                     </motion.div>
-
                 </div>
 
                 {/* STATS */}
@@ -251,20 +326,23 @@ export default function IntroSection() {
                                 className="flex flex-col"
                                 initial={{ opacity: 0, y: 30, scale: 0.96 }}
                                 animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+                                whileHover={{
+                                    y: -6,
+                                    boxShadow: "0 0 32px rgba(255,80,80,0.35)",
+                                }}
                                 transition={{
                                     delay: 0.6 + index * 0.15,
                                     duration: 0.7,
                                     ease: "easeOut",
                                 }}
-                                whileHover={{
-                                    y: -6,
-                                    scale: 1.05,
-                                    boxShadow: "0 0 28px rgba(255,0,0,0.45)",
-                                }}
                             >
                                 <div className="flex items-center gap-3 mb-2">
                                     <div className="w-12 h-12 md:w-14 md:h-14 p-3 flex items-center justify-center rounded-[12px] bg-[#776767]">
-                                        <img src={item.icon} alt="" className="w-full h-full object-contain" />
+                                        <img
+                                            src={item.icon}
+                                            alt=""
+                                            className="w-full h-full object-contain"
+                                        />
                                     </div>
                                     <p className="text-[22px] md:text-[28px] font-semibold text-white">
                                         <AnimatedNumber value={t(`${item.key}.value`)} />

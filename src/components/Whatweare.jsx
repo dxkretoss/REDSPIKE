@@ -41,6 +41,27 @@ const CountUpOnView = ({ value }) => {
     );
 };
 
+/* ================= TEXT ANIMATIONS ================= */
+
+const textContainer = {
+    hidden: {},
+    show: {
+        transition: {
+            staggerChildren: 0.12,
+            delayChildren: 0.1,
+        },
+    },
+};
+
+const textItem = {
+    hidden: { opacity: 0, y: 18 },
+    show: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.45, ease: "easeOut" },
+    },
+};
+
 /* ================= DATA ================= */
 
 const whatWeAreCards = [
@@ -93,7 +114,6 @@ const whatWeAreCards = [
 export default function Whatweare() {
     const { t } = useTranslation();
     const containerRef = useRef(null);
-    const isInView = useInView(containerRef, { once: true, margin: "-120px" });
 
     const { scrollYProgress } = useScroll({
         target: containerRef,
@@ -101,24 +121,21 @@ export default function Whatweare() {
     });
 
     return (
-        <section ref={containerRef} className="relative px-4 mt-24 mb-20">
+        <section ref={containerRef} className="relative px-[20px] md:px-[40px] 2xl:px-[90px] mt-10">
             <div className="relative">
 
                 {/* HEADER */}
                 <motion.div
                     initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
-                    animate={
-                        isInView
-                            ? { opacity: 1, y: 0, filter: "blur(0px)" }
-                            : {}
-                    }
+                    whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                    viewport={{ once: true, margin: "-120px" }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
                     className="
-                        text-center max-w-[1920px] mx-auto mb-20
-                        [@media(min-height:900px)]:sticky
-                        [@media(min-height:900px)]:top-12
-                        z-10
-                    "
+            text-center max-w-[1920px] mx-auto mb-20
+            [@media(min-height:900px)]:sticky
+            [@media(min-height:900px)]:top-12
+            z-10
+          "
                 >
                     <h2
                         className="text-4xl md:text-5xl font-medium text-white"
@@ -143,7 +160,7 @@ export default function Whatweare() {
                 </motion.div>
 
                 {/* CARDS */}
-                <div className="flex flex-col items-center gap-[30vh]">
+                <div className="flex flex-col items-center gap-[100vh]">
                     {whatWeAreCards.map((card, index) => (
                         <Card
                             key={card.id}
@@ -151,7 +168,6 @@ export default function Whatweare() {
                             index={index}
                             t={t}
                             progress={scrollYProgress}
-                            sectionInView={isInView}
                         />
                     ))}
                 </div>
@@ -162,7 +178,10 @@ export default function Whatweare() {
 
 /* ================= CARD ================= */
 
-const Card = ({ card, index, t, progress, sectionInView }) => {
+const Card = ({ card, index, t, progress }) => {
+    const cardRef = useRef(null);
+    const cardInView = useInView(cardRef, { once: true, margin: "-120px" });
+
     const startRange = index * 0.25;
 
     const scale = useTransform(
@@ -179,13 +198,7 @@ const Card = ({ card, index, t, progress, sectionInView }) => {
 
     return (
         <motion.div
-            initial={{ opacity: 0, y: 60, filter: "blur(10px)" }}
-            animate={
-                sectionInView
-                    ? { opacity: 1, y: 0, filter: "blur(0px)" }
-                    : {}
-            }
-            transition={{ duration: 0.9, ease: "easeOut" }}
+            ref={cardRef}
             style={{
                 scale,
                 filter,
@@ -193,60 +206,72 @@ const Card = ({ card, index, t, progress, sectionInView }) => {
                 "--i": index,
             }}
             className="
-        sticky
-        [--cardTop:80px]
-        [@media(min-height:991px)]:[--cardTop:calc(180px+var(--i)*25px)]
-        top-[var(--cardTop)]
-        w-full max-w-6xl
-        rounded-3xl p-8 md:p-10
-        grid grid-cols-1 md:grid-cols-2 gap-10 items-center
-        bg-[linear-gradient(180deg,#0B0F16_0%,#240303_100%)]
-        border border-white/10
-        shadow-[0_-20px_60px_-15px_rgba(0,0,0,0.9)]
-      "
+                sticky
+                [--cardTop:50px]
+                [@media(min-height:991px)]:[--cardTop:calc(180px+var(--i)*25px)]
+                top-[var(--cardTop)]
+                w-full max-w-6xl
+                rounded-3xl p-8 md:p-10
+                grid grid-cols-1 md:grid-cols-2 gap-10 items-center
+                bg-[linear-gradient(180deg,#0B0F16_0%,#240303_100%)]
+                border border-white/10
+                shadow-[0_-20px_60px_-15px_rgba(0,0,0,0.9)]
+            "
         >
-            {/* LEFT */}
+            {/* LEFT TEXT — ANIMATES ONLY */}
             <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                animate={sectionInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ delay: 0.15, duration: 0.6 }}
+                variants={textContainer}
+                initial="hidden"
+                animate={cardInView ? "show" : "hidden"}
                 className="space-y-6"
             >
-                <div className="flex items-center gap-2 text-xs uppercase tracking-wider text-white">
+                <motion.div
+                    variants={textItem}
+                    className="flex items-center gap-2 text-xs uppercase tracking-wider text-white"
+                >
                     <img src={card.sortHeaderimg} alt="" className="w-4 h-4" />
                     {t(card.sortHeader)}
-                </div>
+                </motion.div>
 
-                <h3
+                <motion.h3
+                    variants={textItem}
                     className="text-2xl md:text-3xl font-medium text-white leading-tight"
                     style={{ fontFamily: "Sora, sans-serif" }}
                 >
                     {t(card.titleKey)}
-                </h3>
+                </motion.h3>
 
-                <ul className="space-y-4 text-sm md:text-base text-white/80 max-w-lg">
+                <motion.ul
+                    variants={textContainer}
+                    className="space-y-4 text-sm md:text-base text-white/80 max-w-lg"
+                >
                     {card.points.map((point, idx) => (
-                        <li key={idx} className="flex items-start gap-3">
+                        <motion.li
+                            key={idx}
+                            variants={textItem}
+                            className="flex items-start gap-3"
+                        >
                             <span className="shrink-0 mt-2 w-1.5 h-1.5 rounded-full bg-[#D21717]" />
                             <span>{t(point)}</span>
-                        </li>
+                        </motion.li>
                     ))}
-                </ul>
+                </motion.ul>
             </motion.div>
 
-            {/* RIGHT */}
-            <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                animate={sectionInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ delay: 0.25, duration: 0.6 }}
-                className="relative rounded-2xl overflow-hidden"
-            >
+            {/* RIGHT IMAGE + COUNT */}
+            <div className="relative rounded-2xl overflow-hidden">
                 <img src={card.image} alt="" className="rounded-xl w-full" />
 
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 ">
+                {card.id === 1 &&
+                    <div className="absolute top-8 left-8">
+                        <span className="text-3xl" style={{ fontFamily: "Sora, sans-serif" }}>Global Experience and Transparency</span>
+                    </div>
+                }
+
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
                     <p className="flex items-center gap-3 px-5 py-2 text-sm rounded-xl
             bg-[#00000040] text-white border border-white/20
-            backdrop-blur-md shadow-2x whitespace-nowrap"
+            backdrop-blur-md shadow-2xl whitespace-nowrap"
                     >
                         <span className="text-3xl font-bold tracking-tighter">
                             <CountUpOnView value={card.badge1} />
@@ -256,7 +281,7 @@ const Card = ({ card, index, t, progress, sectionInView }) => {
                         </span>
                     </p>
                 </div>
-            </motion.div>
+            </div>
         </motion.div>
     );
 };

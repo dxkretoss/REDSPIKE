@@ -39,13 +39,18 @@ export default function OurClient() {
 
     return (
         <section
-            className="w-full bg-black mt-20 mb-20 px-6 relative overflow-hidden"
+            className="w-full bg-black mt-20 px-[20px] md:px-[40px] 2xl:px-[90px] relative overflow-hidden"
             style={{
-                backgroundImage: "url(./ourclients/bg.svg)",
+                backgroundImage: "url(./ourclients/dot.svg)",
                 backgroundPosition: "center",
             }}
         >
-            <div className="max-w-[1920px] mx-auto">
+
+            <div
+                className="absolute inset-0 bg-center bg-no-repeat bg-cover opacity-50"
+                style={{ backgroundImage: "url(./ourclients/bg.svg)" }}
+            />
+            <div className="relative z-10 max-w-[1920px] mx-auto">
 
                 {/* ===== TITLE ===== */}
                 <motion.h2
@@ -114,7 +119,7 @@ export default function OurClient() {
                                 <img src={item.icon} alt="" />
                             </div>
 
-                            <p className="text-[18px] text-white whitespace-nowrap">
+                            <p className=" text-[14px] md:text-[18px] text-white whitespace-nowrap">
                                 {t(item.key)}
                             </p>
                         </motion.div>

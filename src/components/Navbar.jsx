@@ -38,10 +38,12 @@ const Navbar = () => {
             initial={{ y: -24, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full bg-black h-[80px] border-b border-[#FFFFFF80] flex items-center relative z-50"
+            className="w-full bg-black h-[80px] border-b border-[#FFFFFF80] relative z-50"
         >
-            <div className="w-full px-6">
-                <div className="flex items-center justify-between">
+            {/* ===== OUTER FULL WIDTH ===== */}
+            <div className="w-full px-[20px] md:px-[40px] 2xl:px-[90px]">
+                {/* ===== INNER CONTAINER ===== */}
+                <div className="max-w-[1920px] mx-auto flex items-center justify-between h-[80px]">
 
                     {/* LOGO */}
                     <motion.div
@@ -49,10 +51,14 @@ const Navbar = () => {
                         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                         className="flex items-center"
                     >
-                        <img src="/mainlogo.svg" alt="RedSpike" className="h-[50px] w-auto" />
+                        <img
+                            src="/mainlogo.svg"
+                            alt="RedSpike"
+                            className="h-[50px] w-auto"
+                        />
                     </motion.div>
 
-                    {/* RIGHT */}
+                    {/* RIGHT SIDE */}
                     <div className="flex items-center gap-8">
 
                         {/* DESKTOP NAV */}
@@ -106,11 +112,13 @@ const Navbar = () => {
                             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                             whileHover={{ scale: 1.05, y: -2 }}
                             whileTap={{ scale: 0.97 }}
-                            className="hidden md:flex items-center gap-1 px-4 py-2 text-sm text-white rounded-[8px]
+                            className="
+                hidden md:flex items-center gap-1 px-4 py-2 text-sm text-white rounded-[8px]
                 bg-gradient-to-r from-[rgba(147,36,36,0.2)] to-[rgba(206,67,67,0.2)]
                 border border-[#932424]
                 hover:text-[#D21717]
-                transition-all"
+                transition-all
+              "
                             onClick={() =>
                                 document.getElementById("contact")?.scrollIntoView({
                                     behavior: "smooth",
@@ -133,7 +141,7 @@ const Navbar = () => {
                 </div>
             </div>
 
-            {/* MOBILE MENU */}
+            {/* ===== MOBILE MENU ===== */}
             <AnimatePresence>
                 {open && (
                     <motion.div
@@ -143,52 +151,55 @@ const Navbar = () => {
                         transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                         className="md:hidden absolute top-[80px] left-0 w-full bg-black border-t border-[#FFFFFF20]"
                     >
-                        <motion.div
-                            className="flex flex-col p-6 gap-4"
-                            initial="hidden"
-                            animate="visible"
-                            variants={{
-                                visible: { transition: { staggerChildren: 0.08 } },
-                            }}
-                        >
-                            {navItems.map((item) => (
+                        <div className="w-full">
+                            <div className="max-w-[1920px] mx-auto">
                                 <motion.div
-                                    key={item.key}
-                                    variants={itemVariants}
+                                    className="flex flex-col p-6 gap-4"
+                                    initial="hidden"
+                                    animate="visible"
+                                    variants={{
+                                        visible: { transition: { staggerChildren: 0.08 } },
+                                    }}
                                 >
-                                    <NavLink
-                                        to={item.path}
-                                        onClick={() => setOpen(false)}
-                                        className={({ isActive }) =>
-                                            `px-4 py-3 rounded-md text-sm transition-all block
-                      ${isActive
-                                                ? "text-[#D21717] bg-[#D2171720]"
-                                                : "text-white hover:text-[#D21717]"
-                                            }`
-                                        }
-                                    >
-                                        {t(item.key)}
-                                    </NavLink>
-                                </motion.div>
-                            ))}
+                                    {navItems.map((item) => (
+                                        <motion.div key={item.key} variants={itemVariants}>
+                                            <NavLink
+                                                to={item.path}
+                                                onClick={() => setOpen(false)}
+                                                className={({ isActive }) =>
+                                                    `px-4 py-3 rounded-md text-sm transition-all block
+                          ${isActive
+                                                        ? "text-[#D21717] bg-[#D2171720]"
+                                                        : "text-white hover:text-[#D21717]"
+                                                    }`
+                                                }
+                                            >
+                                                {t(item.key)}
+                                            </NavLink>
+                                        </motion.div>
+                                    ))}
 
-                            {/* MOBILE CTA */}
-                            <motion.button
-                                whileTap={{ scale: 0.96 }}
-                                className="mt-4 flex items-center justify-center gap-1 px-4 py-3 text-sm text-white rounded-[8px]
-                  bg-gradient-to-r from-[rgba(147,36,36,0.2)] to-[rgba(206,67,67,0.2)]
-                  border border-[#932424]"
-                                onClick={() => {
-                                    setOpen(false);
-                                    document.getElementById("contact")?.scrollIntoView({
-                                        behavior: "smooth",
-                                    });
-                                }}
-                            >
-                                {t("nav.contactUs")}
-                                <ArrowUpRight size={16} />
-                            </motion.button>
-                        </motion.div>
+                                    {/* MOBILE CTA */}
+                                    <motion.button
+                                        whileTap={{ scale: 0.96 }}
+                                        className="
+                      mt-4 flex items-center justify-center gap-1 px-4 py-3 text-sm text-white rounded-[8px]
+                      bg-gradient-to-r from-[rgba(147,36,36,0.2)] to-[rgba(206,67,67,0.2)]
+                      border border-[#932424]
+                    "
+                                        onClick={() => {
+                                            setOpen(false);
+                                            document.getElementById("contact")?.scrollIntoView({
+                                                behavior: "smooth",
+                                            });
+                                        }}
+                                    >
+                                        {t("nav.contactUs")}
+                                        <ArrowUpRight size={16} />
+                                    </motion.button>
+                                </motion.div>
+                            </div>
+                        </div>
                     </motion.div>
                 )}
             </AnimatePresence>

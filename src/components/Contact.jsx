@@ -1,7 +1,8 @@
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
-/* ================= ANIMATION CONFIG (NO UI IMPACT) ================= */
+/* ================= ANIMATION CONFIG ================= */
 
 const fadeUp = {
     hidden: { opacity: 0, y: 24 },
@@ -39,12 +40,63 @@ const stagger = {
     },
 };
 
+/* ================= COMPONENT ================= */
+
 export default function Contact() {
     const { t } = useTranslation();
 
+    /* ===== FORM STATE ===== */
+    const [form, setForm] = useState({
+        firstName: "",
+        email: "",
+        phone: "",
+        company: "",
+        role: "",
+        service: "",
+        message: "",
+    });
+
+    const [errors, setErrors] = useState({});
+
+    /* ===== VALIDATION ===== */
+    const validate = () => {
+        const newErrors = {};
+
+        if (!form.firstName.trim())
+            newErrors.firstName = "First name is required";
+
+        if (!form.email.trim())
+            newErrors.email = "Email is required";
+        else if (!/^\S+@\S+\.\S+$/.test(form.email))
+            newErrors.email = "Enter a valid email";
+
+        if (!form.phone.trim())
+            newErrors.phone = "Phone number is required";
+        else if (form.phone.length < 8)
+            newErrors.phone = "Enter a valid phone number";
+
+        if (!form.message.trim())
+            newErrors.message = "Message is required";
+
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (!validate()) return;
+
+        console.log("Form submitted:", form);
+        // API integration here
+    };
+
+    const handleChange = (e) => {
+        setForm({ ...form, [e.target.name]: e.target.value });
+    };
+
     return (
-        <section className="w-full bg-black mt-20 mb-20 px-6">
-            <div className="max-w-[1920px] mx-auto">
+        <section className="w-full bg-black mt-20 mb-20">
+            <div className="max-w-[1390px] mx-auto px-[20px] md:px-[40px] 2xl:px-[90px]">
 
                 {/* ================= TITLE ================= */}
                 <motion.h2
@@ -85,41 +137,79 @@ export default function Contact() {
                             damping: 18,
                         }}
                         className="
-    rounded-[8px] p-6
-    bg-[linear-gradient(180deg,#0B0F16_0%,#240304_100%)]
-    border border-[#a5a4a4be]
-    shadow-[0_0_10px_0_#0000000D,0_0_44px_0_#A33F3F4D]
-  "
+              rounded-[8px] p-6
+              bg-[linear-gradient(180deg,#0B0F16_0%,#240304_100%)]
+              border border-[#a5a4a4be]
+              shadow-[0_0_10px_0_#0000000D,0_0_44px_0_#A33F3F4D]
+            "
                     >
-
-                        <form className="space-y-4">
+                        <form onSubmit={handleSubmit} className="space-y-4">
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <Input label={t("contact.form.firstName")} placeholder={t("contact.form.firstNamePlaceholder")} />
-                                <Input label={t("contact.form.email")} placeholder={t("contact.form.emailPlaceholder")} />
+                                <Input
+                                    name="firstName"
+                                    label={t("contact.form.firstName")}
+                                    value={form.firstName}
+                                    onChange={handleChange}
+                                    error={errors.firstName}
+                                />
+                                <Input
+                                    name="email"
+                                    label={t("contact.form.email")}
+                                    value={form.email}
+                                    onChange={handleChange}
+                                    error={errors.email}
+                                />
                             </div>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <Input label={t("contact.form.phone")} placeholder={t("contact.form.phonePlaceholder")} />
-                                <Input label={t("contact.form.company")} placeholder={t("contact.form.companyPlaceholder")} />
+                                <Input
+                                    name="phone"
+                                    label={t("contact.form.phone")}
+                                    value={form.phone}
+                                    onChange={handleChange}
+                                    error={errors.phone}
+                                />
+                                <Input
+                                    name="company"
+                                    label={t("contact.form.company")}
+                                    value={form.company}
+                                    onChange={handleChange}
+                                />
                             </div>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <Input label={t("contact.form.role")} placeholder={t("contact.form.rolePlaceholder")} />
-                                <Select label={t("contact.form.service")} />
+                                <Input
+                                    name="role"
+                                    label={t("contact.form.role")}
+                                    value={form.role}
+                                    onChange={handleChange}
+                                />
+                                <Select
+                                    name="service"
+                                    label={t("contact.form.service")}
+                                    value={form.service}
+                                    onChange={handleChange}
+                                />
                             </div>
 
                             <Textarea
+                                name="message"
                                 label={t("contact.form.message")}
-                                placeholder={t("contact.form.messagePlaceholder")}
+                                value={form.message}
+                                onChange={handleChange}
+                                error={errors.message}
                             />
 
                             <motion.button
+                                type="submit"
                                 whileHover={{ y: -2 }}
                                 transition={{ duration: 0.2 }}
-                                className="px-6 py-2 rounded-md text-sm font-medium text-white
-                bg-gradient-to-r from-[#932424] to-[#CE4343]
-                hover:opacity-90 transition"
+                                className="
+                  px-6 py-2 rounded-md text-sm font-medium text-white
+                  bg-gradient-to-r from-[#932424] to-[#CE4343]
+                  hover:opacity-90 transition
+                "
                             >
                                 {t("contact.form.submit")}
                             </motion.button>
@@ -135,10 +225,11 @@ export default function Contact() {
                         viewport={{ once: true }}
                         className="text-white space-y-6"
                     >
-
                         <div>
-                            <h3 className="text-[22px] font-semibold mb-2 text-[#932424]"
-                                style={{ fontFamily: "Sora, sans-serif" }}>
+                            <h3
+                                className="text-[22px] font-semibold mb-2 text-[#932424]"
+                                style={{ fontFamily: "Sora, sans-serif" }}
+                            >
                                 {t("contact.info.title")}
                             </h3>
                             <p className="text-[16px] text-[#FFFFFFCC] max-w-xl">
@@ -181,17 +272,18 @@ export default function Contact() {
                         {/* ================= NOTE ================= */}
                         <motion.div
                             variants={fadeUp}
-                            className="flex items-start gap-3 p-4 rounded-lg
+                            className="flex flex-col items-center text-center lg:flex-row lg:text-left gap-3 p-4 rounded-lg
               bg-[#9324244D] border border-[#FFFFFF1A]"
                         >
-                            <div className="w-12 h-12 flex items-center justify-center rounded-[8px] bg-[#FFFFFF1A]">
-                                <img src="./telegram.svg" />
-                            </div>
+                            <div className="flex gap-3">
+                                <div className="w-14 h-12 flex items-center justify-center rounded-[8px] bg-[#FFFFFF1A] cursor-pointer">
+                                    <img src="./telegram.svg" />
+                                </div>
 
-                            <div className="w-12 h-12 flex items-center justify-center rounded-[8px] bg-[#FFFFFF1A]">
-                                <img src="./wp.svg" />
+                                <div className="w-14 h-12 flex items-center justify-center rounded-[8px] bg-[#FFFFFF1A] cursor-pointer">
+                                    <img src="./wp.svg" />
+                                </div>
                             </div>
-
                             <p
                                 className="text-sm text-white/80"
                                 dangerouslySetInnerHTML={{
@@ -199,53 +291,64 @@ export default function Contact() {
                                 }}
                             />
                         </motion.div>
-
                     </motion.div>
+
                 </div>
             </div>
         </section>
     );
 }
 
-/* ================= REUSABLE COMPONENTS (UI UNCHANGED) ================= */
+/* ================= REUSABLE COMPONENTS ================= */
 
-const Input = ({ label, placeholder }) => (
+const Input = ({ label, error, ...props }) => (
     <div>
         <label className="text-[14px] text-[#FFFFFF]">{label}</label>
         <input
-            placeholder={placeholder}
-            className="mt-2 w-full px-3 py-2 rounded-md text-sm
-      bg-black border border-[#b9b9b980]
-      text-white placeholder:text-[#FFFFFF]
-      focus:outline-none focus:ring-1 focus:ring-[#932424]"
+            {...props}
+            className={`
+        mt-2 w-full px-3 py-2 rounded-md text-sm
+        bg-black border
+        ${error ? "border-red-500" : "border-[#b9b9b980]"}
+        text-white placeholder:text-[#FFFFFF]
+        focus:outline-none focus:ring-1 focus:ring-[#932424]
+      `}
         />
+        {error && <p className="text-xs text-red-500 mt-1">{error}</p>}
     </div>
 );
 
-const Textarea = ({ label, placeholder }) => (
+const Textarea = ({ label, error, ...props }) => (
     <div>
         <label className="text-[14px] text-[#FFFFFF]">{label}</label>
         <textarea
             rows={4}
-            placeholder={placeholder}
-            className="mt-2 w-full px-3 py-2 rounded-md text-sm
-      bg-black border border-[#b9b9b980]
-      text-white placeholder:text-[#FFFFFF]
-      focus:outline-none focus:ring-1 focus:ring-[#932424]"
+            {...props}
+            className={`
+        mt-2 w-full px-3 py-2 rounded-md text-sm
+        bg-black border
+        ${error ? "border-red-500" : "border-[#b9b9b980]"}
+        text-white placeholder:text-[#FFFFFF]
+        focus:outline-none focus:ring-1 focus:ring-[#932424]
+      `}
         />
+        {error && <p className="text-xs text-red-500 mt-1">{error}</p>}
     </div>
 );
 
-const Select = ({ label }) => (
+const Select = ({ label, ...props }) => (
     <div>
         <label className="text-[14px] text-[#FFFFFF]">{label}</label>
         <select
-            className="mt-2 w-full px-3 py-2 rounded-md text-sm
-      bg-black border border-[#b9b9b980]
-      text-white
-      focus:outline-none focus:ring-1 focus:ring-[#932424]"
+            {...props}
+            className="
+        mt-2 w-full px-3 py-2 rounded-md text-sm
+        bg-black border border-[#b9b9b980]
+        text-white
+        focus:outline-none focus:ring-1 focus:ring-[#932424]
+      "
         >
-            <option>{label}</option>
+            <option value="">{label}</option>
             <option>Cyber Security</option>
             <option>Threat Intelligence</option>
             <option>Consulting</option>
@@ -254,13 +357,37 @@ const Select = ({ label }) => (
 );
 
 const InfoItem = ({ icon, title, text }) => (
-    <motion.div variants={fadeUp} className="flex gap-4">
-        <div className="w-12 h-12 flex items-center justify-center rounded-[8px] bg-[#FFFFFF1A]">
-            <img src={icon} alt="" />
+    <motion.div
+        variants={fadeUp}
+        className="flex gap-4 items-start"
+    >
+        {/* ICON */}
+        <div
+            className="
+        w-12 h-12 flex items-center justify-center
+        rounded-[8px] bg-[#FFFFFF1A]
+        shrink-0
+      "
+        >
+            <img
+                src={icon}
+                alt=""
+                className="w-7 h-7 object-contain"
+            />
         </div>
+
+        {/* TEXT */}
         <div>
-            <p className="text-[16px] text-[#FFFFFF] font-semibold">{title}</p>
-            <p className="text-[14px] text-[#FFFFFF] whitespace-pre-line">{text}</p>
+            {/* Title */}
+            <p className="text-[16px] text-white font-semibold leading-snug">
+                {title}
+            </p>
+
+            {/* Description */}
+            <p className="text-[14px] text-white/90 leading-relaxed whitespace-pre-line">
+                {text}
+            </p>
         </div>
     </motion.div>
 );
+

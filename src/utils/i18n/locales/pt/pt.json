@@ -7,90 +7,74 @@
     "blog": "Blog",
     "contacts": "Contatos",
     "tools": "P&D / Ferramentas",
-    "contactUs": "Fale Conosco"
+    "contactUs": "Entre em Contacto"
   },
 
-  "footer": {
-    "tagline": {
-      "line1": "Identifique Fraquezas. Previna",
-      "line2": "Incidentes. O Adversário",
-      "line3": "Trabalhando a Seu Favor."
+  "offenseHero": {
+    "title": {
+      "line1": "Serviços Profissionais de",
+      "highlight": "Segurança",
+      "line2": "Ofensiva"
     },
-
-    "usefulLinks": {
-      "title": "Links Úteis"
+    "subtitle": "Identificar fragilidades. Prevenir Incidentes - Hackers a trabalhar por si.",
+    "cta": "ENTRE EM CONTACTO",
+    "notes": {
+      "1": "Testes de penetração são mais baratos que ransomware ou data breaches.",
+      "2": "Identificar e mitigar as vulnerabilidades que realmente impactam a continuidade do negócio.",
+      "3": "A segurança prova-se na prática, não na política.",
+      "4": "A resiliência constrói-se através de adversidade controlada.",
+      "5": "Os controlos de segurança dizem o que devia funcionar. A ofensiva mostra o que funciona.",
+      "6": "Previne ransomware identificando primeiro as fragilidades críticas.",
+      "7": "Identificar fragilidades críticas antes de se tornarem incidentes.",
+      "8": "Transformar descobertas ofensivas em vantagens defensivas estratégicas.",
+      "9": "Se não testar os teus controlos, os cibercriminosos testam por ti.",
+      "10": "Identificar fragilidades sistémicas com operações Red Team de alta precisão.",
+      "11": "Cibercriminosos pensam de forma ofensiva. E você?",
+      "12": "Identificar e mitigar fragilidades antes que os cibercriminosos as encontrem.",
+      "13": "A segurança falha em silêncio — até falhar em grande."
     },
-
-    "terms": {
-      "title": "Termos",
-      "privacy": "Política de Privacidade",
-      "conditions": "Termos e Condições"
-    },
-
-    "contact": {
-      "title": "Fale Conosco",
-      "emailLabel": "Endereço de Email",
-      "email": "info@redspike.global",
-      "callLabel": "Ligue Para Nós",
-      "phoneIndia": "+351 935 393 440 (PT)",
-      "phoneUsa": "+244 939 122 922 (AO)"
-    },
-
-    "copyright": "DIREITOS AUTORAIS © REDSPIKE"
-  },
-
-  "contact": {
-    "titleRed": "Entre em",
-    "titleWhite": "Contacto",
-
-    "form": {
-      "firstName": "Nome Completo *",
-      "firstNamePlaceholder": "John",
-      "email": "Email*",
-      "emailPlaceholder": "joao.silva@gmail.com",
-      "phone": "Telefone *",
-      "phonePlaceholder": "+351 933 333 444",
-      "company": "Empresa",
-      "companyPlaceholder": "Red Spike",
-      "role": "Cargo na Empresa *",
-      "rolePlaceholder": "Manager",
-      "service": "Com Interesse em *",
-      "message": "Mensagem",
-      "messagePlaceholder": "Conte-nos sobre suas necessidades...",
-      "submit": "Enviar"
-    },
-
-    "info": {
-      "title": "Informações de Contato",
-      "description": "Entre em contacto connosco ou preencha o formulário para solicitar informação adicional",
-      "locationTitle": "Localização",
-      "locationText": "De Portugal para o Mundo",
-      "availabilityTitle": "Disponibilidade",
-      "availabilityText": "Disponível 24 horas por dia, 7 dias por semana, 365 dias por ano",
-      "emailTitle": "Endereço de Email",
-      "email": "info@redspike.global",
-      "phoneTitle": "Liga para nós",
-      "phonePt": "+351 935 393 440 (PT)",
-      "phoneAo": "+244 939 122 922 (AO)",
-      "note": "Podemos estar em viagem. Para evitar custos de chamada, contacte-nos via <strong>WhatsApp</strong> ou <strong>Telegram</strong>."
+    "features": {
+      "monitoring": "Monitoramento de Segurança",
+      "detection": "Detecção de Ameaças",
+      "protection": "Proteção de Dados"
     }
   },
-  "clients": {
-    "titleRed": "Setores dos",
-    "titleWhite": "Nossos Clientes",
-    "description": "Colaboramos com uma vasta diversidade de organizações de pequena, média e grande dimensão, tanto a nível nacional como internacional. O nosso compromisso é fornecer soluções fiáveis e de elevada qualidade, que reforcem as operações, apoiem os objetivos estratégicos e promovam relações duradouras. Se quiser conhecer melhor a nossa experiência ou discutir como podemos apoiar os seus projetos, teremos todo o gosto em agendar uma reunião consigo.",
 
-    "banking": "Banca e Seguradoras",
-    "government": "Governamental",
-    "retail": "Retalho",
-    "it": "Tecnologias de Informação",
-    "healthcare": "Saúde",
-    "industry": "Industria",
-    "telecom": "Telecom",
-    "transportation": "Transportes",
-    "service": "Prestadores de Serviços",
-    "energy": "Energia"
+  "hero": {
+    "badge": "A segurança é comprovada na prática, não na política.",
+
+    "title": {
+      "line1": "Se Sua Organização For Atacada Hoje,",
+      "line2": "Amanhã?",
+      "highlight": "Operacional"
+    },
+
+    "subtitle": "Controlos validam processos. A ofensiva valida resultados.",
+
+    "description": "Se não desafiar os seus controlos, os cibercriminosos vão fazê-lo por si. Ajudamo-lo a identificar fragilidades críticas antes de se transformarem em incidentes de elevado impacto. A nossa equipa multidisciplinar e certificada garante que, na sua organização, a segurança não é uma sensação, mas um trabalho contínuo, sustentado em prova concreta, que pode demonstrar a parceiros de negócio, clientes e restantes partes interessadas.",
+
+    "cta": "ENTRE EM CONTACTO",
+
+    "stats": {
+      "experience": {
+        "value": "10+",
+        "label": "Anos de Experiência Combinada"
+      },
+      "vulnerabilities": {
+        "value": "500+",
+        "label": "Vulnerabilidades Críticas Identificadas"
+      },
+      "support": {
+        "value": "24/7",
+        "label": "Suporte"
+      },
+      "alignment": {
+        "value": "100%",
+        "label": "À Sua Medida"
+      }
+    }
   },
+
   "services": {
     "titleWhite": "Nossos",
     "titleRed": "Serviços",
@@ -141,69 +125,7 @@
       "description": "Apoio à conformidade com normas ISO, GDPR, SOC e regulamentos de segurança."
     }
   },
-  "hero": {
-    "badge": "A segurança é comprovada na prática, não na política.",
 
-    "title": {
-      "line1": "Se Sua Organização For Atacada Hoje,",
-      "line2": "Amanhã?",
-      "highlight": "Operacional"
-    },
-
-    "subtitle": "Controlos validam processos. A ofensiva valida resultados.",
-
-    "description": "Se não desafiar os seus controlos, os cibercriminosos vão fazê-lo por si. Ajudamo-lo a identificar fragilidades críticas antes de se transformarem em incidentes de elevado impacto. A nossa equipa multidisciplinar e certificada garante que, na sua organização, a segurança não é uma sensação, mas um trabalho contínuo, sustentado em prova concreta, que pode demonstrar a parceiros de negócio, clientes e restantes partes interessadas.",
-
-    "cta": "ENTRE EM CONTACTO",
-
-    "stats": {
-      "experience": {
-        "value": "10+",
-        "label": "Anos de Experiência Combinada"
-      },
-      "vulnerabilities": {
-        "value": "500+",
-        "label": "Vulnerabilidades Críticas Identificadas"
-      },
-      "support": {
-        "value": "24/7",
-        "label": "Suporte"
-      },
-      "alignment": {
-        "value": "100%",
-        "label": "À Sua Medida"
-      }
-    }
-  },
-  "offenseHero": {
-    "title": {
-      "line1": "Serviços Profissionais de",
-      "highlight": "Segurança",
-      "line2": "Ofensiva"
-    },
-    "subtitle": "Identificar fragilidades. Prevenir Incidentes - Hackers a trabalhar por si.",
-    "cta": "ENTRE EM CONTACTO",
-    "notes": {
-      "1": "Testes de penetração são mais baratos que ransomware ou data breaches.",
-      "2": "Identificar e mitigar as vulnerabilidades que realmente impactam a continuidade do negócio.",
-      "3": "A segurança prova-se na prática, não na política.",
-      "4": "A resiliência constrói-se através de adversidade controlada.",
-      "5": "Os controlos de segurança dizem o que devia funcionar. A ofensiva mostra o que funciona.",
-      "6": "Previne ransomware identificando primeiro as fragilidades críticas.",
-      "7": "Identificar fragilidades críticas antes de se tornarem incidentes.",
-      "8": "Transformar descobertas ofensivas em vantagens defensivas estratégicas.",
-      "9": "Se não testar os teus controlos, os cibercriminosos testam por ti.",
-      "10": "Identificar fragilidades sistémicas com operações Red Team de alta precisão.",
-      "11": "Cibercriminosos pensam de forma ofensiva. E você?",
-      "12": "Identificar e mitigar fragilidades antes que os cibercriminosos as encontrem.",
-      "13": "A segurança falha em silêncio — até falhar em grande."
-    },
-    "features": {
-      "monitoring": "Monitoramento de Segurança",
-      "detection": "Detecção de Ameaças",
-      "protection": "Proteção de Dados"
-    }
-  },
   "Whatweare": {
     "headerTitle": "O Que Nos",
     "headerTitleRed": "Distingue",
@@ -232,5 +154,88 @@
       "point2": "Desenhamos serviços flexíveis e modulares, totalmente adaptados ao seu setor, nível de maturidade e panorama de ameaças.",
       "point3": "Nada de soluções genéricas: construímos abordagens focadas nos riscos que realmente importam para o seu negócio."
     }
+  },
+
+  "clients": {
+    "titleRed": "Setores dos",
+    "titleWhite": "Nossos Clientes",
+    "description": "Colaboramos com uma vasta diversidade de organizações de pequena, média e grande dimensão, tanto a nível nacional como internacional. O nosso compromisso é fornecer soluções fiáveis e de elevada qualidade, que reforcem as operações, apoiem os objetivos estratégicos e promovam relações duradouras. Se quiser conhecer melhor a nossa experiência ou discutir como podemos apoiar os seus projetos, teremos todo o gosto em agendar uma reunião consigo.",
+
+    "banking": "Banca e Seguradoras",
+    "government": "Governamental",
+    "retail": "Retalho",
+    "it": "Tecnologias de Informação",
+    "healthcare": "Saúde",
+    "industry": "Industria",
+    "telecom": "Telecom",
+    "transportation": "Transportes",
+    "service": "Prestadores de Serviços",
+    "energy": "Energia"
+  },
+
+  "contact": {
+    "titleRed": "Entre em",
+    "titleWhite": "Contacto",
+
+    "form": {
+      "firstName": "Nome Completo *",
+      "firstNamePlaceholder": "John",
+      "email": "Email*",
+      "emailPlaceholder": "joao.silva@gmail.com",
+      "phone": "Telefone *",
+      "phonePlaceholder": "+351 933 333 444",
+      "company": "Empresa",
+      "companyPlaceholder": "Red Spike",
+      "role": "Cargo na Empresa *",
+      "rolePlaceholder": "Manager",
+      "service": "Com Interesse em *",
+      "message": "Mensagem",
+      "messagePlaceholder": "Conte-nos sobre suas necessidades...",
+      "submit": "Enviar"
+    },
+
+    "info": {
+      "title": "Informações de Contato",
+      "description": "Entre em contacto connosco ou preencha o formulário para solicitar informação adicional",
+      "locationTitle": "Localização",
+      "locationText": "De Portugal para o Mundo",
+      "availabilityTitle": "Disponibilidade",
+      "availabilityText": "Disponível 24 horas por dia, 7 dias por semana, 365 dias por ano",
+      "emailTitle": "Endereço de Email",
+      "email": "info@redspike.global",
+      "phoneTitle": "Liga para nós",
+      "phonePt": "+351 935 393 440 (PT)",
+      "phoneAo": "+244 939 122 922 (AO)",
+      "note": "Podemos estar em viagem. Para evitar custos de chamada, contacte-nos via <strong>WhatsApp</strong> ou <strong>Telegram</strong>."
+    }
+  },
+
+  "footer": {
+    "tagline": {
+      "line1": "Identifique Fraquezas. Previna",
+      "line2": "Incidentes. O Adversário",
+      "line3": "Trabalhando a Seu Favor."
+    },
+
+    "usefulLinks": {
+      "title": "Links Úteis"
+    },
+
+    "terms": {
+      "title": "Termos",
+      "privacy": "Política de Privacidade",
+      "conditions": "Termos e Condições"
+    },
+
+    "contact": {
+      "title": "Fale Conosco",
+      "emailLabel": "Endereço de Email",
+      "email": "info@redspike.global",
+      "callLabel": "Ligue Para Nós",
+      "phoneIndia": "+351 935 393 440 (PT)",
+      "phoneUsa": "+244 939 122 922 (AO)"
+    },
+
+    "copyright": "DIREITOS AUTORAIS © REDSPIKE"
   }
 }

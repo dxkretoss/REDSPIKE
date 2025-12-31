@@ -33,11 +33,11 @@ export default function RotatingNote({ interval = 4000 }) {
         <p
             key={index} // 👈 important for animation reset
             className="
-        mt-6 text-[14px]
-        text-transparent
-        bg-clip-text
-        animate-fadeIn
-      "
+                mt-6 text-[14px]
+                text-transparent
+                bg-clip-text
+                animate-fadeIn
+            "
             style={{
                 backgroundImage:
                     "linear-gradient(90deg, #FFFFFF 0%, #932424 136.94%)",

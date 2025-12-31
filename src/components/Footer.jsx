@@ -32,14 +32,14 @@ export default function Footer() {
     const { t } = useTranslation();
 
     return (
-        <footer className="w-full px-6 bg-black border-t border-[#FFFFFF1A] relative overflow-hidden">
+        <footer className="w-full bg-black border-t border-[#FFFFFF1A] relative overflow-hidden">
             {/* ===== TOP SECTION ===== */}
             <motion.div
                 variants={footerContainer}
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true }}
-                className="max-w-[1920px] mx-auto py-16"
+                className="max-w-[1390px] mx-auto py-16 px-[20px] md:px-[40px] 2xl:px-[90px]"
             >
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12">
                     {/* Brand */}

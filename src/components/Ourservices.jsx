@@ -63,7 +63,7 @@ const fadeUp = {
 };
 
 const cardAnim = {
-    hidden: { opacity: 0, scale: 0.9 },
+    hidden: { opacity: 0, scale: 0.92 },
     show: {
         opacity: 1,
         scale: 1,
@@ -80,14 +80,69 @@ const innerAnim = {
     },
 };
 
+const iconPop = {
+    hidden: {
+        opacity: 0,
+        scale: 0.7,
+        y: 10,
+    },
+    show: {
+        opacity: 1,
+        scale: 1,
+        y: 0,
+        transition: {
+            duration: 0.45,
+            ease: [0.16, 1, 0.3, 1],
+        },
+    },
+};
+
+
 /* ================= COMPONENT ================= */
 
 export default function OurServices() {
     const { t } = useTranslation();
 
     return (
-        <section className="w-full bg-black mt-20 mb-10 px-6 overflow-hidden">
-            <div className="max-w-[1920px] mx-auto">
+        <section className="w-full bg-black mt-20  px-[20px] md:px-[40px] 2xl:px-[90px] relative overflow-hidden">
+
+            {/* ===== AMBIENT CYBER PULSE (SLOWED) ===== */}
+            <motion.div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                    background:
+                        "radial-gradient(circle at center, rgba(255,60,60,0.10), transparent 70%)",
+                    willChange: "opacity, transform",
+                }}
+                animate={{
+                    opacity: [0.2, 0.4, 0.2],
+                    scale: [1, 1.06, 1],
+                }}
+                transition={{
+                    duration: 26,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                }}
+            />
+
+            {/* ===== SCAN LINE OVERLAY (SLOWED) ===== */}
+            <motion.div
+                className="absolute inset-0 pointer-events-none opacity-[0.05]"
+                style={{
+                    backgroundImage:
+                        "linear-gradient(to right, rgba(255,255,255,0.12) 1px, transparent 1px)",
+                    backgroundSize: "140px 100%",
+                    willChange: "background-position",
+                }}
+                animate={{ backgroundPositionX: ["0%", "100%"] }}
+                transition={{
+                    duration: 40,
+                    repeat: Infinity,
+                    ease: "linear",
+                }}
+            />
+
+            <div className="relative z-10 max-w-[1920px] mx-auto">
 
                 {/* TITLE */}
                 <motion.h2
@@ -128,11 +183,25 @@ export default function OurServices() {
                     viewport={{ once: true, amount: 0.25 }}
                     className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10 mb-10"
                 >
-                    {services.map((item) => (
+                    {services.map((item, index) => (
                         <motion.div
                             key={item.key}
                             variants={cardAnim}
-                            whileHover={{ scale: 1.04 }}
+                            style={{ willChange: "transform" }}
+                            animate={{
+                                y: [0, -3, 0],
+                            }}
+                            transition={{
+                                duration: 14 + index,
+                                delay: index * 0.4,
+                                repeat: Infinity,
+                                ease: "easeInOut",
+                            }}
+                            whileHover={{
+                                scale: 1.05,
+                                y: -6,
+                                boxShadow: "0 0 48px rgba(255,80,80,0.45)",
+                            }}
                             className={`
                 relative rounded-[24px] p-4
                 ${bgByType[item.type]}
@@ -145,15 +214,41 @@ export default function OurServices() {
                             <span className={`absolute top-4 right-4 ${dottype[item.type]}`} />
 
                             <motion.div variants={container}>
-                                <motion.div variants={innerAnim} className={`w-10 h-10 mb-4 rounded-lg ${imgbg[item.type]}`}>
-                                    <img src={item.icon} alt="" className="p-1.5" />
+                                <motion.div
+                                    variants={iconPop}
+                                    style={{ willChange: "transform, opacity" }}
+                                    className={`
+                                        w-10 h-10  mb-4 rounded-lg ${imgbg[item.type]}
+                                        relative
+                                    `}
+                                >
+                                    {/* subtle glow layer */}
+                                    <span
+                                        className="absolute inset-0 rounded-lg opacity-30 blur-md"
+                                        style={{
+                                            background: "inherit",
+                                        }}
+                                    />
+
+                                    <img
+                                        src={item.icon}
+                                        alt=""
+                                        className="relative z-10 p-1.5"
+                                    />
                                 </motion.div>
 
-                                <motion.h4 variants={innerAnim} className="text-white mb-2 text-[16px] font-semibold">
+
+                                <motion.h4
+                                    variants={innerAnim}
+                                    className="text-white mb-2 text-[16px] font-semibold"
+                                >
                                     {t(`${item.key}.title`)}
                                 </motion.h4>
 
-                                <motion.p variants={innerAnim} className="text-white/70 text-sm">
+                                <motion.p
+                                    variants={innerAnim}
+                                    className="text-white/70 text-sm"
+                                >
                                     {t(`${item.key}.description`)}
                                 </motion.p>
                             </motion.div>
