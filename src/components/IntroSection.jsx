@@ -8,7 +8,7 @@ import {
     useInView,
     useSpring
 } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 /* ================= ANIMATION VARIANTS ================= */
 
@@ -126,26 +126,103 @@ export default function IntroSection() {
     const x = useMotionValue(0);
     const y = useMotionValue(0);
 
-    // Smooth spring (important)
-    const smoothX = useSpring(x, { stiffness: 120, damping: 18 });
-    const smoothY = useSpring(y, { stiffness: 120, damping: 18 });
+    // Softer spring = smoother return
+    const smoothX = useSpring(x, {
+        stiffness: 80,     // ⬇ lower = slower
+        damping: 26,       // ⬆ higher = smoother
+        mass: 0.8,         // ⬆ heavier = premium feel
+    });
+
+    const smoothY = useSpring(y, {
+        stiffness: 80,
+        damping: 26,
+        mass: 0.8,
+    });
 
     const handleMouseMove = (e) => {
-        const rect = containerRef.current.getBoundingClientRect();
+        if (!containerRef.current) return;
+        isHovering.current = true;
 
-        // Normalize cursor position (-0.5 → 0.5)
+        const rect = containerRef.current.getBoundingClientRect();
         const offsetX = (e.clientX - rect.left) / rect.width - 0.5;
         const offsetY = (e.clientY - rect.top) / rect.height - 0.5;
 
-        // Control strength here
         x.set(offsetX * 30);
         y.set(offsetY * 30);
     };
 
     const resetPosition = () => {
+        isHovering.current = false;
         x.set(0);
         y.set(0);
     };
+
+    const idleRotateX = useMotionValue(-0.6);
+    const idleRotateY = useMotionValue(0.6);
+
+    useEffect(() => {
+        animate(idleRotateX, [-0.6, 0.6, -0.6], {
+            duration: 18,
+            repeat: Infinity,
+            ease: "easeInOut",
+        });
+
+        animate(idleRotateY, [0.6, -0.6, 0.6], {
+            duration: 22,
+            repeat: Infinity,
+            ease: "easeInOut",
+        });
+    }, []);
+
+
+    const isHovering = useRef(false);
+
+    const idleRX = useMotionValue(0);
+    const idleRY = useMotionValue(0);
+
+    useEffect(() => {
+        const controlsX = animate(idleRX, [-0.4, 0.4, -0.4], {
+            duration: 18,
+            repeat: Infinity,
+            ease: "easeInOut",
+        });
+
+        const controlsY = animate(idleRY, [0.4, -0.4, 0.4], {
+            duration: 22,
+            repeat: Infinity,
+            ease: "easeInOut",
+        });
+
+        return () => {
+            controlsX.stop();
+            controlsY.stop();
+        };
+    }, []);
+
+    const rotateX = useTransform(smoothY, (v) =>
+        isHovering.current ? v * -0.1 : idleRX.get()
+    );
+
+    const rotateY = useTransform(smoothX, (v) =>
+        isHovering.current ? v * 0.1 : idleRY.get()
+    );
+
+    const idleY = useMotionValue(0);
+    useEffect(() => {
+        const controls = animate(idleY, [0, -8, 0], {
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut",
+        });
+
+        return () => controls.stop();
+    }, []);
+
+    const combinedY = useTransform(
+        [smoothY, idleY],
+        ([hoverY, idle]) => hoverY + idle
+    );
+
 
     return (
         <motion.section
@@ -208,7 +285,7 @@ export default function IntroSection() {
                     >
                         <motion.span
                             variants={itemVariants}
-                            className="inline-block mb-4 px-3 py-1 text-xs rounded-full bg-[#93242466] text-white"
+                            className="inline-block mb-4 px-3 py-2 text-xs rounded-full bg-[#93242466] text-white"
                         >
                             {t("hero.badge")}
                         </motion.span>
@@ -285,17 +362,19 @@ export default function IntroSection() {
                         onMouseLeave={resetPosition}
                         className="hidden lg:flex justify-center -mr-[20px] md:-mr-[40px] 2xl:-mr-[90px] relative"
                     >
-                        {/* TOP IMAGE — CURSOR PARALLAX */}
+                        {/* TOP IMAGE — CURSOR PARALLAX ONLY */}
                         <motion.img
                             src="/Group 1376156983.svg"
                             alt="Top Illustration"
-                            className="absolute z-20 w-[350px] pointer-events-none"
+                            className="absolute z-20 w-[350px] pointer-events-none will-change-transform"
                             style={{
                                 x: smoothX,
-                                y: smoothY,
+                                y: combinedY,
+                                rotateX,
+                                rotateY,
                             }}
-                            animate={{ y: [0, -18, 0], rotateZ: [0, 0.4, 0], }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", }}
                         />
+
 
                         {/* BOTTOM IMAGE — STATIC */}
                         <img
@@ -304,6 +383,7 @@ export default function IntroSection() {
                             className="relative z-10"
                         />
                     </motion.div>
+
                 </div>
 
                 {/* STATS */}

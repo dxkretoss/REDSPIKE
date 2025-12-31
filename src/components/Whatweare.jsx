@@ -131,11 +131,11 @@ export default function Whatweare() {
                     viewport={{ once: true, margin: "-120px" }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
                     className="
-            text-center max-w-[1920px] mx-auto mb-20
-            [@media(min-height:900px)]:sticky
-            [@media(min-height:900px)]:top-12
-            z-10
-          "
+                        text-center max-w-[1920px] mx-auto mb-20
+                        [@media(min-height:900px)]:sticky
+                        [@media(min-height:900px)]:top-12
+                        z-10
+                    "
                 >
                     <h2
                         className="text-4xl md:text-5xl font-medium text-white"
@@ -154,7 +154,7 @@ export default function Whatweare() {
                         </span>
                     </h2>
 
-                    <p className="mt-4 text-sm md:text-base text-white leading-relaxed">
+                    <p className="mt-4 text-sm md:text-base text-white leading-relaxed max-w-[680px] mx-auto">
                         {t("Whatweare.headerSubtitle")}
                     </p>
                 </motion.div>

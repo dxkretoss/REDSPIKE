@@ -12,48 +12,48 @@
 
   "offenseHero": {
     "title": {
-      "line1": "Serviços Profissionais de",
-      "highlight": "Segurança",
-      "line2": "Ofensiva"
+      "line1": "Serviços de",
+      "highlight": "Cibersegurança",
+      "line2": "Orientados à Ofensiva"
     },
-    "subtitle": "Identificar fragilidades. Prevenir Incidentes - Hackers a trabalhar por si.",
-    "cta": "ENTRE EM CONTACTO",
+    "subtitle": "Identifique Fragilidades. Previna Incidentes. A Mentalidade do Adversário a Trabalhar Para Si.",
+    "cta": "Solicitar Proposta",
     "notes": {
-      "1": "Testes de penetração são mais baratos que ransomware ou data breaches.",
-      "2": "Identificar e mitigar as vulnerabilidades que realmente impactam a continuidade do negócio.",
+      "1": "Um pentest é mais barato do que um ransomware ou uma violação de dados.",
+      "2": "Identifique e mitigue vulnerabilidades que realmente impactam a continuidade do negócio.",
       "3": "A segurança prova-se na prática, não na política.",
       "4": "A resiliência constrói-se através de adversidade controlada.",
-      "5": "Os controlos de segurança dizem o que devia funcionar. A ofensiva mostra o que funciona.",
-      "6": "Previne ransomware identificando primeiro as fragilidades críticas.",
-      "7": "Identificar fragilidades críticas antes de se tornarem incidentes.",
-      "8": "Transformar descobertas ofensivas em vantagens defensivas estratégicas.",
-      "9": "Se não testar os teus controlos, os cibercriminosos testam por ti.",
-      "10": "Identificar fragilidades sistémicas com operações Red Team de alta precisão.",
-      "11": "Cibercriminosos pensam de forma ofensiva. E você?",
-      "12": "Identificar e mitigar fragilidades antes que os cibercriminosos as encontrem.",
-      "13": "A segurança falha em silêncio — até falhar em grande."
+      "5": "Os controlos provam intenção. A ofensiva prova eficácia.",
+      "6": "Previna ransomware identificando primeiro fragilidades exploráveis.",
+      "7": "Identificar fragilidades de alto impacto antes que se tornem incidentes críticos.",
+      "8": "Transformar descobertas ofensivas em vantagens estratégicas defensivas.",
+      "9": "Se não desafiar os seus controlos, os atacantes irão fazê-lo.",
+      "10": "Expor fragilidades sistémicas através de operações Red Team de precisão.",
+      "11": "Os agentes de ameaça pensam de forma ofensiva. E você?",
+      "12": "Identifique e mitigue fragilidades antes dos cibercriminosos.",
+      "13": "A segurança falha silenciosamente — até falhar ruidosamente."
     },
     "features": {
-      "monitoring": "Monitoramento de Segurança",
-      "detection": "Detecção de Ameaças",
+      "monitoring": "Monitorização de Segurança",
+      "detection": "Deteção de Ameaças",
       "protection": "Proteção de Dados"
     }
   },
 
   "hero": {
-    "badge": "A segurança é comprovada na prática, não na política.",
+    "badge": "A segurança prova-se na prática, não na política.",
 
     "title": {
-      "line1": "Se Sua Organização For Atacada Hoje,",
-      "line2": "Amanhã?",
+      "line1": "Se a sua organização for atacada hoje, estará",
+      "line2": "amanhã?",
       "highlight": "Operacional"
     },
 
-    "subtitle": "Controlos validam processos. A ofensiva valida resultados.",
+    "subtitle": "Os Controlos Provam Intenção. A Ofensiva Prova Eficácia.",
 
-    "description": "Se não desafiar os seus controlos, os cibercriminosos vão fazê-lo por si. Ajudamo-lo a identificar fragilidades críticas antes de se transformarem em incidentes de elevado impacto. A nossa equipa multidisciplinar e certificada garante que, na sua organização, a segurança não é uma sensação, mas um trabalho contínuo, sustentado em prova concreta, que pode demonstrar a parceiros de negócio, clientes e restantes partes interessadas.",
+    "description": "Se não desafiar os seus controlos, a cibersegurança irá fazê-lo. Ajudamo-lo a identificar fragilidades de alto impacto antes que se tornem incidentes críticos. A nossa equipa multidisciplinar e certificada garante que a segurança na sua organização não é uma sensação, mas uma prática contínua, baseada em evidências, que pode ser demonstrada a parceiros e stakeholders.",
 
-    "cta": "ENTRE EM CONTACTO",
+    "cta": "Contacte-nos",
 
     "stats": {
       "experience": {
@@ -70,151 +70,151 @@
       },
       "alignment": {
         "value": "100%",
-        "label": "À Sua Medida"
+        "label": "Alinhado com as Suas Necessidades"
       }
     }
   },
 
   "services": {
-    "titleWhite": "Nossos",
+    "titleWhite": "Os Nossos",
     "titleRed": "Serviços",
-    "description": "Concentramos-nos no que fazemos de melhor: fornecer serviços avançados de segurança ofensiva com transparência, rigor e excelência. Para áreas fora da nossa especialidade principal, colaboramos com parceiros confiáveis, garantindo que cada cliente receba o conhecimento certo, das pessoas certas, no momento certo.",
+    "description": "Focamo-nos no que fazemos melhor: fornecer serviços de segurança ofensiva de alto nível com transparência, rigor e excelência. Para áreas fora da nossa especialização principal, colaboramos com parceiros de confiança, garantindo que cada cliente recebe o conhecimento certo, das pessoas certas, no momento certo.",
 
     "offensive": {
       "title": "Avaliações Personalizadas de Segurança Ofensiva",
-      "description": "Desenvolvimento de auditorias e avaliações de segurança alinhadas às necessidades da sua organização."
+      "description": "Desenvolvimento de auditorias e avaliações de segurança alinhadas com as necessidades específicas da sua organização e objetivos de continuidade do negócio."
     },
     "webApi": {
       "title": "Testes de Segurança Web & API",
-      "description": "Identifique e corrija vulnerabilidades em aplicações web e APIs para reduzir riscos."
+      "description": "Identificação e correção de vulnerabilidades em aplicações web e APIs."
     },
     "network": {
       "title": "Avaliações de Segurança de Redes Internas e Externas",
-      "description": "Avalie e fortaleça a segurança das suas redes através de análises adversariais abrangentes."
+      "description": "Avaliação e melhoria da segurança das suas redes internas e externas através de análise adversarial abrangente."
     },
     "threat": {
       "title": "Inteligência de Ameaças",
-      "description": "Obtenha insights acionáveis sobre ameaças emergentes e táticas adversárias."
+      "description": "Obtenha insights acionáveis sobre ameaças emergentes para fortalecer a sua estratégia defensiva."
     },
     "osint": {
       "title": "OSINT & Investigações de Pegada Digital",
-      "description": "Mapeie e analise a exposição pública da sua organização."
+      "description": "Revele a exposição pública da sua organização através da análise da sua pegada digital."
     },
     "phishing": {
       "title": "Simulações de Phishing & Engenharia Social",
-      "description": "Teste a conscientização e resiliência da organização contra ataques reais."
+      "description": "Execução de campanhas controladas para avaliar a resiliência interna e reforçar boas práticas de segurança."
     },
     "training": {
-      "title": "Treinamento & Desenvolvimento de Competências",
-      "description": "Capacite sua equipe com treinamentos práticos e especializados em cibersegurança."
+      "title": "Formação & Desenvolvimento de Competências",
+      "description": "Reforço das capacidades da equipa com formação em cibersegurança orientada para a prática."
     },
     "mobile": {
-      "title": "Avaliações de Segurança de Aplicações Móveis",
-      "description": "Fortaleça a segurança de aplicações Android e iOS contra ameaças modernas."
+      "title": "Avaliações de Segurança de Aplicações Mobile",
+      "description": "Avaliação e reforço da segurança de aplicações Android e iOS contra ameaças reais."
     },
     "forensics": {
-      "title": "Forense Digital & Análise de Resposta a Incidentes",
-      "description": "Investigue incidentes de segurança e apoie ações rápidas de resposta."
+      "title": "Análise Forense Digital & Resposta a Incidentes",
+      "description": "Investigação de incidentes, preservação de evidências e apoio à recuperação segura das operações."
     },
     "iot": {
-      "title": "Testes de Segurança IoT & Dispositivos Embarcados",
-      "description": "Avalie vulnerabilidades em dispositivos IoT e sistemas embarcados."
+      "title": "Testes de Segurança IoT & Dispositivos Embebidos",
+      "description": "Exposição de fragilidades em dispositivos IoT para garantir implementações seguras e resilientes."
     },
     "compliance": {
-      "title": "Conformidade e Consultoria em Cibersegurança",
-      "description": "Apoio à conformidade com normas ISO, GDPR, SOC e regulamentos de segurança."
+      "title": "Conformidade & Consultoria em Cibersegurança",
+      "description": "Apoio em NIS2, GDPR, ISO 27001, HIPAA e outros frameworks globais de cibersegurança."
     }
   },
 
   "Whatweare": {
     "headerTitle": "O Que Nos",
     "headerTitleRed": "Distingue",
-    "headerSubtitle": "Experiência, soluções personalizadas, proteção de dados, conformidade global e resposta rápida a incidentes — sempre com valor acrescentado.",
+    "headerSubtitle": "Especialização, soluções personalizadas, proteção de dados, conformidade global e resposta rápida a incidentes.",
 
     "card1": {
       "securityFits": "Impacto acima de volume",
       "title": "Compromisso com a Excelência",
-      "point1": "Adoramos o que fazemos — e apenas aceitamos projetos nos quais podemos garantir qualidade e resultados significativos. Não assumimos trabalhos apenas para preencher um portefólio ou colecionar logótipos.",
-      "point2": "Trabalhamos para gerar impacto. Por isso, só nos comprometemos com missões em que sabemos que podemos superar expectativas e, quando necessário, colaboramos com especialistas altamente qualificados noutras áreas da cibersegurança.",
-      "point3": "O cliente recebe sempre a solução certa — mesmo quando não é entregue diretamente por nós."
+      "point1": "Aceitamos apenas projetos onde podemos garantir qualidade e resultados significativos.",
+      "point2": "Comprometemo-nos apenas com missões onde sabemos que podemos exceder expectativas.",
+      "point3": "O cliente recebe sempre a solução certa."
     },
 
     "card2": {
       "securityFits": "Ofensiva por especialistas",
       "title": "Especialistas Reais, Experiência Comprovada",
-      "point1": "Todos os serviços são prestados por profissionais certificados com experiência comprovada em segurança ofensiva.",
-      "point2": "Sem intermediários, sem subcontratação oculta, sem atalhos — apenas especialistas que compreendem verdadeiramente as técnicas usadas por atacantes reais.",
-      "point3": "Conhecimento tangível, rigor técnico e total transparência em cada projeto."
+      "point1": "Todos os serviços são prestados por profissionais certificados.",
+      "point2": "Sem intermediários, sem outsourcing oculto.",
+      "point3": "Rigor técnico e total transparência."
     },
 
     "card3": {
-      "securityFits": "Segurança à sua medida",
-      "title": "Uma Abordagem Personalizada às Suas Necessidades",
-      "point1": "Cada organização é única — e a sua segurança deve refletir essa realidade.",
-      "point2": "Desenhamos serviços flexíveis e modulares, totalmente adaptados ao seu setor, nível de maturidade e panorama de ameaças.",
-      "point3": "Nada de soluções genéricas: construímos abordagens focadas nos riscos que realmente importam para o seu negócio."
+      "securityFits": "Segurança à medida",
+      "title": "Abordagem Personalizada às Suas Necessidades",
+      "point1": "Cada organização é única.",
+      "point2": "Serviços flexíveis e modulares.",
+      "point3": "Sem soluções genéricas."
     }
   },
 
   "clients": {
     "titleRed": "Setores dos",
     "titleWhite": "Nossos Clientes",
-    "description": "Colaboramos com uma vasta diversidade de organizações de pequena, média e grande dimensão, tanto a nível nacional como internacional. O nosso compromisso é fornecer soluções fiáveis e de elevada qualidade, que reforcem as operações, apoiem os objetivos estratégicos e promovam relações duradouras. Se quiser conhecer melhor a nossa experiência ou discutir como podemos apoiar os seus projetos, teremos todo o gosto em agendar uma reunião consigo.",
+    "description": "Trabalhamos com organizações de diversas dimensões e setores, a nível nacional e internacional.",
 
-    "banking": "Banca e Seguradoras",
-    "government": "Governamental",
+    "banking": "Banca e Seguros",
+    "government": "Governo",
     "retail": "Retalho",
-    "it": "Tecnologias de Informação",
+    "it": "Tecnologia da Informação",
     "healthcare": "Saúde",
-    "industry": "Industria",
-    "telecom": "Telecom",
+    "industry": "Indústria",
+    "telecom": "Telecomunicações",
     "transportation": "Transportes",
-    "service": "Prestadores de Serviços",
+    "service": "Organizações de Serviços",
     "energy": "Energia"
   },
 
   "contact": {
-    "titleRed": "Entre em",
-    "titleWhite": "Contacto",
+    "titleRed": "Contacte",
+    "titleWhite": "Nos",
 
     "form": {
       "firstName": "Nome Completo *",
-      "firstNamePlaceholder": "John",
-      "email": "Email*",
+      "firstNamePlaceholder": "João",
+      "email": "Email *",
       "emailPlaceholder": "joao.silva@gmail.com",
       "phone": "Telefone *",
-      "phonePlaceholder": "+351 933 333 444",
+      "phonePlaceholder": "+351 987 654 321",
       "company": "Empresa",
       "companyPlaceholder": "Red Spike",
-      "role": "Cargo na Empresa *",
-      "rolePlaceholder": "Manager",
-      "service": "Com Interesse em *",
+      "role": "Cargo *",
+      "rolePlaceholder": "Gestor",
+      "service": "Serviço de Interesse *",
       "message": "Mensagem",
-      "messagePlaceholder": "Conte-nos sobre suas necessidades...",
+      "messagePlaceholder": "Descreva as suas necessidades...",
       "submit": "Enviar"
     },
 
     "info": {
-      "title": "Informações de Contato",
-      "description": "Entre em contacto connosco ou preencha o formulário para solicitar informação adicional",
+      "title": "Informações de Contacto",
+      "description": "Entre em contacto connosco ou submeta o formulário.",
       "locationTitle": "Localização",
-      "locationText": "De Portugal para o Mundo",
+      "locationText": "De Portugal & Angola para o Mundo",
       "availabilityTitle": "Disponibilidade",
-      "availabilityText": "Disponível 24 horas por dia, 7 dias por semana, 365 dias por ano",
+      "availabilityText": "Disponível 24/7, 365 dias por ano",
       "emailTitle": "Endereço de Email",
       "email": "info@redspike.global",
-      "phoneTitle": "Liga para nós",
+      "phoneTitle": "Ligue-nos",
       "phonePt": "+351 935 393 440 (PT)",
       "phoneAo": "+244 939 122 922 (AO)",
-      "note": "Podemos estar em viagem. Para evitar custos de chamada, contacte-nos via <strong>WhatsApp</strong> ou <strong>Telegram</strong>."
+      "note": "Podemos estar a viajar; para evitar custos, contacte-nos via <strong>WhatsApp</strong> ou <strong>Telegram</strong>."
     }
   },
 
   "footer": {
     "tagline": {
-      "line1": "Identifique Fraquezas. Previna",
-      "line2": "Incidentes. O Adversário",
-      "line3": "Trabalhando a Seu Favor."
+      "line1": "Identifique Fragilidades. Previna",
+      "line2": "Incidentes. - A Mentalidade",
+      "line3": "do Adversário a Trabalhar Para Si."
     },
 
     "usefulLinks": {
@@ -228,14 +228,14 @@
     },
 
     "contact": {
-      "title": "Fale Conosco",
+      "title": "Contacte-nos",
       "emailLabel": "Endereço de Email",
       "email": "info@redspike.global",
-      "callLabel": "Ligue Para Nós",
+      "callLabel": "Ligue-nos",
       "phoneIndia": "+351 935 393 440 (PT)",
       "phoneUsa": "+244 939 122 922 (AO)"
     },
 
-    "copyright": "DIREITOS AUTORAIS © REDSPIKE"
+    "copyright": "DIREITOS DE AUTOR © REDSPIKE"
   }
 }

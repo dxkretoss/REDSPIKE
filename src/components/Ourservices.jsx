@@ -97,6 +97,28 @@ const iconPop = {
     },
 };
 
+const item = {
+    hidden: { opacity: 0, y: 10, scale: 0.95 },
+    show: {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        transition: { duration: 0.4, ease: "easeOut" },
+    },
+};
+
+const glowPulse = {
+    animate: {
+        scale: [1, 1.25, 1],
+        opacity: [0.6, 1, 0.6],
+        transition: {
+            duration: 2.2,
+            repeat: Infinity,
+            ease: "easeInOut",
+        },
+    },
+};
+
 
 /* ================= COMPONENT ================= */
 
@@ -175,6 +197,56 @@ export default function OurServices() {
                     {t("services.description")}
                 </motion.p>
 
+
+                {/* ===== LEGEND ===== */}
+                <motion.div
+                    variants={container}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true }}
+                    className="flex items-center justify-center gap-10"
+                >
+                    {/* REDSPIKE */}
+                    <motion.div variants={item} className="flex flex-col items-center gap-3">
+                        <motion.span
+                            variants={glowPulse}
+                            animate="animate"
+                            className="w-4 h-4 rounded-full bg-[#D21717] shadow-[0_0_14px_0_#D21717]"
+                        />
+                        <span className="text-white text-[14px] font-medium tracking-wide">
+                            REDSPIKE
+                        </span>
+                    </motion.div>
+
+                    <div className="h-8 w-px bg-white/30" />
+
+                    {/* HYBRID */}
+                    <motion.div variants={item} className="flex flex-col items-center gap-3">
+                        <motion.span
+                            variants={glowPulse}
+                            animate="animate"
+                            className="w-4 h-4 rounded-full bg-[#D217CF] shadow-[0_0_14px_0_#D217C6]"
+                        />
+                        <span className="text-white text-[14px] font-medium tracking-wide">
+                            HYBRID
+                        </span>
+                    </motion.div>
+
+                    <div className="h-8 w-px bg-white/30" />
+
+                    {/* PARTNERS */}
+                    <motion.div variants={item} className="flex flex-col items-center gap-3">
+                        <motion.span
+                            variants={glowPulse}
+                            animate="animate"
+                            className="w-4 h-4 rounded-full bg-[#1720D2] shadow-[0_0_14px_0_#3317D2]"
+                        />
+                        <span className="text-white text-[14px] font-medium tracking-wide">
+                            PARTNERS
+                        </span>
+                    </motion.div>
+                </motion.div>
+
                 {/* GRID */}
                 <motion.div
                     variants={container}
@@ -200,16 +272,14 @@ export default function OurServices() {
                             whileHover={{
                                 scale: 1.05,
                                 y: -6,
-                                boxShadow: "0 0 48px rgba(255,80,80,0.45)",
                             }}
                             className={`
-                relative rounded-[24px] p-4
-                ${bgByType[item.type]}
-                border border-[#FFFFFF33]
-                ${hoverBorderByType[item.type]}
-                shadow-[0_0_44px_#6612124D]
-                transition-all
-              `}
+                                    relative rounded-[24px] p-4
+                                    ${bgByType[item.type]}
+                                    border border-[#FFFFFF33]
+                                    ${hoverBorderByType[item.type]}                
+                                    transition-all
+                                `}
                         >
                             <span className={`absolute top-4 right-4 ${dottype[item.type]}`} />
 

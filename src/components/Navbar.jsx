@@ -102,23 +102,16 @@ const Navbar = () => {
 
                         {/* CTA BUTTON */}
                         <motion.button
-                            animate={{
-                                boxShadow: [
-                                    "0 0 18px rgba(255,0,0,0.4)",
-                                    "0 0 32px rgba(255,0,0,0.8)",
-                                    "0 0 18px rgba(255,0,0,0.4)",
-                                ],
-                            }}
                             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                             whileHover={{ scale: 1.05, y: -2 }}
                             whileTap={{ scale: 0.97 }}
                             className="
-                hidden md:flex items-center gap-1 px-4 py-2 text-sm text-white rounded-[8px]
-                bg-gradient-to-r from-[rgba(147,36,36,0.2)] to-[rgba(206,67,67,0.2)]
-                border border-[#932424]
-                hover:text-[#D21717]
-                transition-all
-              "
+                                hidden md:flex items-center gap-1 px-4 py-2 text-sm text-white rounded-[8px]
+                                bg-gradient-to-r from-[rgba(147,36,36,0.2)] to-[rgba(206,67,67,0.2)]
+                                border border-[#932424]
+                                hover:text-[#D21717]
+                                transition-all shadow-[0px_0px_24px_0px_#A33F3F80]
+                            "
                             onClick={() =>
                                 document.getElementById("contact")?.scrollIntoView({
                                     behavior: "smooth",
