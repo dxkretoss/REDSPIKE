@@ -202,13 +202,13 @@ const Card = ({ card, index, t, progress }) => {
             style={{
                 scale,
                 filter,
-                zIndex: index + 1,
+                zIndex: 50,
                 "--i": index,
             }}
             className="
                 sticky
                 [--cardTop:50px]
-                [@media(min-height:991px)]:[--cardTop:calc(180px+var(--i)*25px)]
+                [@media(min-height:900px)]:[--cardTop:calc(250px+var(--i)*25px)]
                 top-[var(--cardTop)]
                 w-full max-w-6xl
                 rounded-3xl p-8 md:p-10
